@@ -2,10 +2,17 @@
   "name": "valex-frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8010",
   "dependencies": {
+    "axios": "^0.16.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.13"
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.13",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.15.6",
+    "reselect": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

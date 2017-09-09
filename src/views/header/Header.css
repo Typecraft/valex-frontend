@@ -1,0 +1,35 @@
+.header{
+  padding: 0 1em;
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header__left, .header__right{
+  vertical-align: top;
+  display: inline-block;
+  height: 100%;
+}
+
+.header__right{
+  height: 100%;
+  float: right;
+  margin-right: 0.5em;
+}
+
+.header__btn, .header__label{
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.5em;
+}
+
+.header__btn{
+  cursor: pointer;
+  color: #8499c6;
+}
+
+.header__btn:hover{
+  color: #cad3e6;
+}

@@ -42,15 +42,15 @@ api.getAndSetApiKey()
     })
 
     module.hot.accept('./state/rootReducer', () => {
-        const nextConfigureStore = require('./state').default
-        ReactDOM.render(
-          <Provider store={nextConfigureStore()}>
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
-          </Provider>,
-          document.getElementById('root')
-        )
+      const nextConfigureStore = require('./state').default
+      ReactDOM.render(
+        <Provider store={nextConfigureStore()}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </Provider>,
+        document.getElementById('root')
+      )
     });
 
     module.hot.accept('./state/rootSaga', () => {

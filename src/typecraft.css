@@ -35,6 +35,36 @@ h1, h1, h2, h3, h4, h5, h6 {
 .very-bold {
   font-weight: 600; }
 
+.tiny {
+  font-size: 10px; }
+
+.very-small {
+  font-size: 12px; }
+
+.small {
+  font-size: 14px; }
+
+.normal {
+  font-size: 16px; }
+
+.large {
+  font-size: 19px; }
+
+.larger {
+  font-size: 24px; }
+
+.very-large {
+  font-size: 32px; }
+
+.huge {
+  font-size: 42px; }
+
+.Huge {
+  font-size: 56px; }
+
+.HUGE {
+  font-size: 72px; }
+
 /* Coolors Exported Palette - coolors.co/48639c-4c4c9d-712f79-976391-f7996e */
 /* HSL */
 /* RGB */

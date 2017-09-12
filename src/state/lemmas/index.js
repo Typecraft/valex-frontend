@@ -9,7 +9,7 @@ import {
   removeFromObjectById
 } from '../util'
 
-import api from 'api/lemmas'
+import api from 'api'
 
 export const initialState = {
 }

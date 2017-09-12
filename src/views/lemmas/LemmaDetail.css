@@ -1,0 +1,11 @@
+
+.lemmadetail{
+  min-height: 100%;
+}
+
+.lemmadetail--loading, .lemmadetail--noexists{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

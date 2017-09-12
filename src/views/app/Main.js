@@ -2,7 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import { Switch, Route } from 'react-router-dom'
+
 import StaffRequired from 'views/login/StaffRequired'
+import Dashboard from './Dashboard'
 
 import './Main.css'
 
@@ -17,11 +20,9 @@ export class Main extends React.Component {
 
   render = () =>
     <main className="main">
-      <StaffRequired>
-        <div>
-          Super secret stuff
-        </div>
-      </StaffRequired>
+      <Switch>
+        <Route path="/" component={Dashboard} />
+      </Switch>
     </main>
 }
 

@@ -1,0 +1,37 @@
+.dashboard{
+}
+
+.dashboard__search{
+  padding: 4em 0;
+  text-align: center;
+}
+
+.dashboard__search .valex-form-control{
+  display: inline-block;
+  font-size: 20px;
+}
+
+.submit-inform{
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+
+.dashboard__search .valex-form-control input{
+  width: 500px;
+  font-size: 20px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+}
+
+.dashboard__infocard{
+  text-align: center;
+  padding-top: 1em;
+}

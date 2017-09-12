@@ -26,14 +26,14 @@ h1, h1, h2, h3, h4, h5, h6 {
 .very-light {
   font-weight: 200; }
 
+.normal {
+  font-weight: 400; }
+
 .bold {
   font-weight: 500; }
 
 .very-bold {
   font-weight: 600; }
-
-i.mdi {
-  margin-right: 3px; }
 
 /* Coolors Exported Palette - coolors.co/48639c-4c4c9d-712f79-976391-f7996e */
 /* HSL */
@@ -1571,3 +1571,75 @@ i.mdi {
   background-color: white;
   border-radius: 5px;
   padding: 0.25em 0.5em; }
+
+/* Coolors Exported Palette - coolors.co/48639c-4c4c9d-712f79-976391-f7996e */
+/* HSL */
+/* RGB */
+.valex-form-control .form-group {
+  position: relative;
+  margin-bottom: 0.5em; }
+
+.valex-form-control.form-flex .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.valex-form-control input {
+  outline: none;
+  border: 1px solid #4c4c9d;
+  padding: 0.5em 1em 0.5em 1.95em;
+  border-radius: 4px;
+  width: 250px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.valex-form-control label {
+  display: block;
+  wrap: wrap;
+  color: #48639c; }
+
+.valex-form-control .form-icon {
+  position: absolute;
+  left: 0.4em;
+  color: #48639c; }
+
+.valex-form-control .form-icon > * {
+  position: absolute;
+  top: 4px; }
+
+.valex-form-control.form-inline {
+  vertical-align: top; }
+
+.valex-form-control.form-inline label,
+.valex-form-control.form-inline input {
+  display: inline-block;
+  vertical-align: top; }
+
+.valex-form-control.form-inline label {
+  display: inline-block;
+  width: 120px; }
+
+.valex-form-control.form-inline label + .form-icon {
+  left: calc(120px + 0.7em); }
+
+.valex-form-control button {
+  background-color: #4c4c9d;
+  display: inline-block;
+  width: 250px;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  border: none;
+  color: #cecee7;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer; }
+
+.valex-form-control button.block {
+  width: 100%; }
+
+.valex-form-control.form-colors-inverse label {
+  color: #8499c6; }
+
+.valex-form-control.form-colors-inverse button {
+  background-color: #617cb6;
+  color: #edf0f6; }

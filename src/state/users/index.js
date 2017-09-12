@@ -19,7 +19,8 @@ export const types = {
   LOAD_CURRENT_SUCCESS: 'valex/users/load-current-success',
   UPDATE: 'valex/users/update',
   UPDATE_SUCCESS: 'valex/users/update-success',
-  UPDATE_ERROR: 'valex/users/update-error'
+  UPDATE_ERROR: 'valex/users/update-error',
+  RESET_CURRENT: 'valex/users/reset-current'
 }
 
 export const actions = {
@@ -29,6 +30,11 @@ export const actions = {
       meta: {
         current: true
       }
+    }
+  },
+  resetCurrent() {
+    return {
+      type: types.RESET_CURRENT
     }
   },
   loadSingle() {
@@ -100,6 +106,11 @@ export function reducer(state = initialState, {type, payload}) {
       return {
         ...state,
         all: addByIdToObject(state.all, payload)
+      }
+    case types.RESET_CURRENT:
+      return {
+        ...state,
+        current: -1
       }
     default:
       return state

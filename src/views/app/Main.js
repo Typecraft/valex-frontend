@@ -1,7 +1,10 @@
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+
+import LoginFull from 'views/login/LoginFull'
+
+import './Main.css'
 
 export class Main extends React.Component {
   static propTypes = {
@@ -13,9 +16,9 @@ export class Main extends React.Component {
   }
 
   render = () =>
-    <div className="main">
-      Hello
-    </div>
+    <main className="main">
+      <LoginFull />
+    </main>
 }
 
 export default Main;

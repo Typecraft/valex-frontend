@@ -71,9 +71,9 @@ export class LoginFull extends React.Component {
           <div className="loginfull__smiley">
             ☺
           </div>
-          <h2>You are already logged in, enjoy!</h2>
+          <h2>You are logged in, enjoy!</h2>
           <div className="valex-form-control mt-40">
-            <button className="block">Logout</button>
+            <button className="block" onClick={this.props.attemptLogout}>Logout</button>
           </div>
         </div>
       )
@@ -91,7 +91,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     attemptLogin: (username, password) => dispatch(login.actions.attemptLogin(username, password)),
-    attemptLogout: () => dispatch(login.actions.logout()),
+    attemptLogout: () => dispatch(login.actions.attemptLogout()),
     dispatch
   }
 }

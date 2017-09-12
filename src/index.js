@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './typecraft.css';
+import './normalize.css';
 import App from './views/app/App';
 // import registerServiceWorker from './registerServiceWorker';
 import configureStore from './state'
 import api from 'api'
 
 import users from 'state/users'
+import login from 'state/login'
 
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
@@ -17,6 +19,7 @@ api.getAndSetApiKey()
 .then(loggedIn => {
   if (loggedIn) {
     store.dispatch(users.actions.loadCurrent())
+    store.dispatch(login.actions.login())
   }
 
   ReactDOM.render(

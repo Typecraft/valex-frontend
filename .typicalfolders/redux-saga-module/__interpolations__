@@ -1,0 +1,14 @@
+[
+	{
+		"name": "projectName"
+	},
+	{
+		"name": "moduleName"
+	},
+	{
+		"name": "singularName"
+	},
+	{
+		"name": "singularNameCamelCased"
+	}
+]

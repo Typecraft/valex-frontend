@@ -45,11 +45,11 @@ export class Header extends React.Component {
         </div>
       </div>
       <div className="header__right">
-        <div className="header__btn mr-20">
+        {/*<div className="header__btn mr-20">
           <i className="mdi mdi-bell"></i>
           Notifications
           <a className="ml-5 badge bg-valex-purple valex-lighter-purple">0</a>
-        </div>
+        </div>*/}
         <UserLoginHeaderButton
             currentUser={this.props.currentUser}
             onClickLogin={this.handleUserLoginClicked} />

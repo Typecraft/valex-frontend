@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -8,13 +6,35 @@ import users from 'state/users'
 
 import './Header.css'
 
+import UserLoginHeaderButton from './UserLoginHeaderButton'
+import LoginDialog from 'views/login/LoginDialog'
+
 export class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginDialogOpen: false
+    }
+  }
+
   static propTypes = {
     currentUser: PropTypes.object
   }
 
   static defaultProps = {
 
+  }
+
+  handleUserLoginClicked = () => {
+    console.log('he');
+    this.setState({
+      ...this.state,
+      loginDialogOpen: !this.state.loginDialogOpen
+    })
+  }
+
+  handleUserAccountClicked = () => {
+    this.setState()
   }
 
   render = () =>
@@ -30,12 +50,10 @@ export class Header extends React.Component {
           Notifications
           <a className="ml-5 badge bg-valex-purple valex-lighter-purple">0</a>
         </div>
-        <div className="header__btn">
-          {this.props.currentUser === undefined ?
-            (<span><i className="mdi mdi-account"></i>Login</span>) :
-            (<span><i className="mdi mdi-account"></i>{this.props.currentUser.username}</span>)
-          }
-        </div>
+        <UserLoginHeaderButton
+            currentUser={this.props.currentUser}
+            onClickLogin={this.handleUserLoginClicked} />
+        <LoginDialog currentUser={this.props.currentUser} open={this.state.loginDialogOpen} />
       </div>
     </div>
 }

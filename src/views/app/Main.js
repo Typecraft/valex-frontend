@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import LoginFull from 'views/login/LoginFull'
+import StaffRequired from 'views/login/StaffRequired'
 
 import './Main.css'
 
@@ -17,7 +17,11 @@ export class Main extends React.Component {
 
   render = () =>
     <main className="main">
-      <LoginFull />
+      <StaffRequired>
+        <div>
+          Super secret stuff
+        </div>
+      </StaffRequired>
     </main>
 }
 

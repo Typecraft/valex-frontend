@@ -1,0 +1,19 @@
+.staffrequired{
+  width: 100%;
+  height: 100%;
+}
+
+.staffrequired__unauthorized{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.staffrequired__inner{
+  margin-top: -10em;
+  text-align: center;
+}
+
+.staffrequired__inner .huge{
+  font-size: 120px;
+}

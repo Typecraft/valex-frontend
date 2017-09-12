@@ -1,6 +1,6 @@
 /* Coolors Exported Palette - coolors.co/48639c-4c4c9d-712f79-976391-f7996e */
-/* HSL */
-/* RGB */
+/* Valex */
+/* Login */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Work+Sans:200,300,400");
 html {
   margin: 0;
@@ -66,8 +66,8 @@ h1, h1, h2, h3, h4, h5, h6 {
   font-size: 72px; }
 
 /* Coolors Exported Palette - coolors.co/48639c-4c4c9d-712f79-976391-f7996e */
-/* HSL */
-/* RGB */
+/* Valex */
+/* Login */
 .bg-valex-highlight-blue {
   background-color: #cad3e6; }
 
@@ -133,6 +133,66 @@ h1, h1, h2, h3, h4, h5, h6 {
 
 .valex-orange {
   color: #f7996e; }
+
+.login-deep-blue {
+  color: #233363; }
+
+.login-light-blue {
+  color: #207e93; }
+
+.login-teal {
+  color: #498c8a; }
+
+.login-green {
+  color: #4b6858; }
+
+.login-brown {
+  color: #4d4730; }
+
+.login-deep-blue-highlight {
+  color: #8094d2; }
+
+.login-light-blue-highlight {
+  color: #97d9e8; }
+
+.login-teal-highlight {
+  color: #c2dfde; }
+
+.login-green-highlight {
+  color: #b5cabe; }
+
+.login-brown-highlight {
+  color: #b9b190; }
+
+.bg-login-deep-blue {
+  background-color: #233363; }
+
+.bg-login-light-blue {
+  background-color: #207e93; }
+
+.bg-login-teal {
+  background-color: #498c8a; }
+
+.bg-login-green {
+  background-color: #4b6858; }
+
+.bg-login-brown {
+  background-color: #4d4730; }
+
+.bg-login-deep-blue-highlight {
+  background-color: #8094d2; }
+
+.bg-login-light-blue-highlight {
+  background-color: #97d9e8; }
+
+.bg-login-teal-highlight {
+  background-color: #c2dfde; }
+
+.bg-login-green-highlight {
+  background-color: #b5cabe; }
+
+.bg-login-brown-highlight {
+  background-color: #b9b190; }
 
 .white {
   color: white; }
@@ -231,8 +291,45 @@ h1, h1, h2, h3, h4, h5, h6 {
   background-color: #282828; }
 
 /* Coolors Exported Palette - coolors.co/48639c-4c4c9d-712f79-976391-f7996e */
-/* HSL */
-/* RGB */
+/* Valex */
+/* Login */
+button, .btn {
+  display: inline-block;
+  outline: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-align: center; }
+  button:active, .btn:active {
+    -webkit-transform: scale(1.02, 1.02);
+            transform: scale(1.02, 1.02); }
+  button.btn-no-active:active, .btn.btn-no-active:active {
+    -webkit-transform: none !important;
+            transform: none !important; }
+  button.btn-default, .btn.btn-default {
+    background-color: #a0a0a0;
+    color: #e0e0e0; }
+  button.btn-small, .btn.btn-small {
+    min-width: 100px;
+    font-size: 12px; }
+  button.btn-medium, .btn.btn-medium {
+    min-width: 150px;
+    font-size: 16px; }
+  button.btn-large, .btn.btn-large {
+    min-width: 225px;
+    font-size: 18px; }
+  button.block, button.btn-block, .btn.block, .btn.btn-block {
+    display: block;
+    width: 100%; }
+
+/* Coolors Exported Palette - coolors.co/48639c-4c4c9d-712f79-976391-f7996e */
+/* Valex */
+/* Login */
 .badge {
   position: relative;
   font-size: .7em;
@@ -246,6 +343,11 @@ h1, h1, h2, h3, h4, h5, h6 {
 .badge.badge-default {
   color: white;
   background-color: gray; }
+
+.resetlink {
+  text-decoration: inherit !important;
+  color: inherit !important;
+  cursor: inherit !important; }
 
 .m-1 {
   margin: 1px; }
@@ -1603,8 +1705,8 @@ h1, h1, h2, h3, h4, h5, h6 {
   padding: 0.25em 0.5em; }
 
 /* Coolors Exported Palette - coolors.co/48639c-4c4c9d-712f79-976391-f7996e */
-/* HSL */
-/* RGB */
+/* Valex */
+/* Login */
 .valex-form-control .form-group {
   position: relative;
   margin-bottom: 0.5em; }
@@ -1673,3 +1775,92 @@ h1, h1, h2, h3, h4, h5, h6 {
 .valex-form-control.form-colors-inverse button {
   background-color: #617cb6;
   color: #edf0f6; }
+
+.login-form-control .form-group {
+  position: relative;
+  margin-bottom: 0.5em; }
+
+.login-form-control.form-flex .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.login-form-control input {
+  outline: none;
+  border: 1px solid #233363;
+  padding: 0.5em 1em 0.5em 1.95em;
+  border-radius: 4px;
+  width: 250px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.login-form-control label {
+  display: block;
+  wrap: wrap;
+  color: #3e5aae; }
+
+.login-form-control .form-icon {
+  position: absolute;
+  left: 0.4em;
+  color: #3e5aae; }
+
+.login-form-control .form-icon > * {
+  position: absolute;
+  top: 4px; }
+
+.login-form-control.form-inline {
+  vertical-align: top; }
+
+.login-form-control.form-inline label,
+.login-form-control.form-inline input {
+  display: inline-block;
+  vertical-align: top; }
+
+.login-form-control.form-inline label {
+  display: inline-block;
+  width: 120px; }
+
+.login-form-control.form-inline label + .form-icon {
+  left: calc(120px + 0.7em); }
+
+.login-form-control button {
+  background-color: #233363;
+  display: inline-block;
+  width: 250px;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  border: none;
+  color: #8094d2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer; }
+
+.login-form-control button.block {
+  width: 100%; }
+
+.login-form-control.form-colors-inverse label {
+  color: #5a75c5; }
+
+.login-form-control.form-colors-inverse button {
+  background-color: #3e5aae;
+  color: #cbd4ed; }
+
+.login-form-control.form-brown input {
+  border: 1px solid #4d4730; }
+
+.login-form-control.form-brown label {
+  color: #8c8157; }
+
+.login-form-control.form-brown .form-icon {
+  color: #8c8157; }
+
+.login-form-control.form-brown button {
+  background-color: #4d4730;
+  color: #b9b190; }
+
+.login-form-control.form-brown.form-colors-inverse label {
+  color: #a69b70; }
+
+.login-form-control.form-brown.form-colors-inverse button {
+  background-color: #8c8157;
+  color: #e1ddce; }

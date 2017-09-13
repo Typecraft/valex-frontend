@@ -6,6 +6,7 @@ import LemmaDetail from 'views/lemmas/LemmaDetail'
 import LemmaDetailEdit from 'views/lemmas/LemmaDetailEdit'
 
 import Dashboard from './Dashboard'
+import UnderConstructionFull from 'views/generic/UnderConstructionFull'
 
 import './Main.css'
 
@@ -25,6 +26,7 @@ export class Main extends React.Component {
         <Redirect exact from="/" to="/app" />
         <Route exact path="/app/lemmas/:lemmaId" component={LemmaDetail}/>
         <Route path="/app/lemmas/:lemmaId/edit" component={LemmaDetailEdit}/>
+        <Route path="/" component={UnderConstructionFull} />
       </Switch>
     </main>
 }

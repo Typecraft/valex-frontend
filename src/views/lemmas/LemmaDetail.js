@@ -8,6 +8,8 @@ import { ThreeBounce } from 'better-react-spinkit'
 import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
+import StaffOnly from 'views/login/StaffOnly'
+
 import './LemmaDetail.css'
 
 export class LemmaDetail extends React.Component {
@@ -47,7 +49,7 @@ export class LemmaDetail extends React.Component {
           <Grid className="lemmadetail__inner">
             <Row className="mt-40">
               <h1 className="light darker-gray">{lemma.lemma}</h1>
-              <Link to={`/app/lemmas/${lemma.id}/edit`} className="lemmadetail__edit darker-gray">Edit <i className="mdi mdi-pencil"></i></Link>
+              <StaffOnly><Link to={`/app/lemmas/${lemma.id}/edit`} className="lemmadetail__edit darker-gray">Edit <i className="mdi mdi-pencil"></i></Link></StaffOnly>
             </Row>
             <Row className="mt-20">
               <h3 className="light">Basic data</h3>

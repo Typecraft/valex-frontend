@@ -1,20 +1,20 @@
 
-.lemmadetail{
+.lemmadetailedit{
   min-height: 100%;
 }
 
-.lemmadetail__inner{
+.lemmadetailedit__inner{
   position: relative;
 }
 
-.lemmadetail--loading, .lemmadetail--noexists{
+.lemmadetailedit--loading, .lemmadetailedit--noexists{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.lemmadetail__edit{
+.lemmadetailedit__back{
   margin: 0;
   position: absolute;
   right: 0;
@@ -27,7 +27,7 @@
   text-decoration: none;
 }
 
-.lemmadetail__edit:hover{
+.lemmadetailedit__edit:hover{
   background-color: #9f9f9f;
   color: #ccc;
 }

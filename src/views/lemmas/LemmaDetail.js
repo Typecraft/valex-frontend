@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import lemmas from 'state/lemmas'
 
 import { ThreeBounce } from 'better-react-spinkit'
-
+import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
 import './LemmaDetail.css'
@@ -26,6 +26,7 @@ export class LemmaDetail extends React.Component {
   }
 
   render = () => {
+    const lemma = this.props.lemma
     // Loading
     if (this.props.lemma === undefined) {
       return (
@@ -38,17 +39,15 @@ export class LemmaDetail extends React.Component {
       return (
         <div className="lemmadetail lemmadetail--noexists">
           <span role="img" className="HUGE valex-purple" aria-label="Sadface">😞</span>
-          <h2 className="light valex-purple">Lemma does not exist</h2>
         </div>
       )
     } else {
-      const lemma = this.props.lemma
       return (
         <div className="lemmadetail">
           <Grid className="lemmadetail__inner">
             <Row className="mt-40">
               <h1 className="light darker-gray">{lemma.lemma}</h1>
-              <div className="lemmadetail__edit darker-gray">Edit <i className="mdi mdi-pencil"></i></div>
+              <Link to={`/app/lemmas/${lemma.id}/edit`} className="lemmadetail__edit darker-gray">Edit <i className="mdi mdi-pencil"></i></Link>
             </Row>
             <Row className="mt-20">
               <h3 className="light">Basic data</h3>

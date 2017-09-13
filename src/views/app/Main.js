@@ -1,12 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import LemmaDetail from 'views/lemmas/LemmaDetail'
+import LemmaDetailEdit from 'views/lemmas/LemmaDetailEdit'
 
-import StaffRequired from 'views/login/StaffRequired'
 import Dashboard from './Dashboard'
 
 import './Main.css'
@@ -25,7 +23,8 @@ export class Main extends React.Component {
       <Switch>
         <Route exact path="/app" component={Dashboard} />
         <Redirect exact from="/" to="/app" />
-        <Route path="/app/lemmas/:lemmaId" component={LemmaDetail}/>
+        <Route exact path="/app/lemmas/:lemmaId" component={LemmaDetail}/>
+        <Route path="/app/lemmas/:lemmaId/edit" component={LemmaDetailEdit}/>
       </Switch>
     </main>
 }

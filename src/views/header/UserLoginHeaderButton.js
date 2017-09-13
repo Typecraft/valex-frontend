@@ -6,7 +6,7 @@ const UserLoginHeaderButton = ({currentUser, onClickLogin, onClickAccount}) => {
     return (
       <div className="header__btn" onClick={onClickAccount}>
         <i className="mdi mdi-account"></i>
-        {currentUser.username || "Anonymous user"}
+        {currentUser.first_name || currentUser.username || "Anonymous user"}
       </div>
     )
   } else {

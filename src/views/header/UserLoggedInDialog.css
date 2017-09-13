@@ -35,7 +35,7 @@
   cursor: pointer;
 }
 
-.userloggedindialog > div > a{
+.userloggedindialog > div a{
   display: block !important;
   width: 100%;
   padding: 0.5em 1em 0.5em 0.2em;

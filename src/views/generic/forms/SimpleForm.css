@@ -1,0 +1,24 @@
+.simpleform{
+
+}
+
+.simpleform .Select{
+  display: inline-block;
+}
+
+.simpleform .Select.is-focused{
+  box-shadow: none !important;
+}
+
+.simpleform .Select.is-pseudo-focused{
+  box-shadow: none !important;
+}
+
+.simpleform .Select-control{
+  width: 250px !important;
+  font-size: 13.333px;
+  border: 1px solid #4c4c9d;
+}
+
+.Select-value{
+}

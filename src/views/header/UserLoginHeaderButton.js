@@ -20,11 +20,13 @@ const UserLoginHeaderButton = ({currentUser, onClickLogin, onClickAccount}) => {
 }
 
 UserLoginHeaderButton.propTypes = {
-
+  currentUser: PropTypes.object,
+  onClickLogin: PropTypes.func,
+  onClickAccount: PropTypes.func
 }
 
 UserLoginHeaderButton.defaultProps = {
-
+  currentUser: {username: "Anonyomous user"}
 }
 
 export default UserLoginHeaderButton;

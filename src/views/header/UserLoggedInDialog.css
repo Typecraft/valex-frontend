@@ -1,0 +1,42 @@
+.userloggedindialog.open{
+  display: block;
+}
+
+.userloggedindialog{
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  box-sizing: border-box;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 0 #c0a0bd;
+  width: 250px;
+}
+
+.userloggedindialog:before{
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-bottom: 5px solid #f8f8f8;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top: -5px;
+  right: 25px;
+}
+
+.userloggedindialog__title{
+  color: #cad3e6;
+}
+
+.userloggedindialog > div{
+  border-bottom: 1px solid #e7e7e7;
+  cursor: pointer;
+}
+
+.userloggedindialog > div > a{
+  display: block !important;
+  width: 100%;
+  padding: 0.5em 1em 0.5em 0.2em;
+}

@@ -4,16 +4,21 @@ import { connect } from 'react-redux'
 
 import users from 'state/users'
 
-import './Header.css'
+import { Link } from 'react-router-dom'
 
 import UserLoginHeaderButton from './UserLoginHeaderButton'
 import LoginDialog from 'views/login/LoginDialog'
+import UserLoggedInDialog from './UserLoggedInDialog'
+import HeaderNav from './HeaderNav'
+
+import './Header.css'
 
 export class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginDialogOpen: false
+      loginDialogOpen: false,
+      loggedInDialogOpen: false
     }
   }
 
@@ -26,7 +31,6 @@ export class Header extends React.Component {
   }
 
   handleUserLoginClicked = () => {
-    console.log('he');
     this.setState({
       ...this.state,
       loginDialogOpen: !this.state.loginDialogOpen
@@ -34,15 +38,22 @@ export class Header extends React.Component {
   }
 
   handleUserAccountClicked = () => {
-    this.setState()
+    this.setState({
+      ...this.state,
+      loggedInDialogOpen: !this.state.loggedInDialogOpen
+    })
   }
+
 
   render = () =>
     <div className="header bg-valex-blue">
       <div className="header__left">
         <div className="header__btn">
-          <h1 className="light valex-highlight-blue">Valex</h1>
+          <Link className="resetlink" to="/app/">
+            <h1 className="light valex-highlight-blue">Valex</h1>
+          </Link>
         </div>
+      </div>
       <div className="header__middle">
         <HeaderNav />
       </div>
@@ -54,8 +65,10 @@ export class Header extends React.Component {
         </div>*/}
         <UserLoginHeaderButton
             currentUser={this.props.currentUser}
-            onClickLogin={this.handleUserLoginClicked} />
+            onClickLogin={this.handleUserLoginClicked}
+            onClickAccount={this.handleUserAccountClicked} />
         <LoginDialog currentUser={this.props.currentUser} open={this.state.loginDialogOpen} />
+        <UserLoggedInDialog open={this.props.currentUser !== undefined && this.state.loggedInDialogOpen} />
       </div>
     </div>
 }

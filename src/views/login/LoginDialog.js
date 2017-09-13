@@ -41,8 +41,16 @@ export class LoginDialog extends React.Component {
     this.props.attemptLogin(this.state.username, this.state.password)
   }
 
+  handleKeyUp = event => {
+    if (event.key === 'Enter') {
+      this.handleSubmit()
+    }
+  }
+
   render = () =>
-    <div className={`logindialog bg-valex-blue ${(this.props.open && !this.props.loggedIn) ? 'open' : ''}`}>
+    <div
+        className={`logindialog bg-valex-blue ${(this.props.open && !this.props.loggedIn) ? 'open' : ''}`}
+        onKeyUp={this.handleKeyUp}>
       <div className="valex-form-control form-inline form-colors-inverse">
         <h3 className="logindialog__title light mb-15">Please enter your credentials</h3>
         <div className="form-group">
@@ -56,10 +64,18 @@ export class LoginDialog extends React.Component {
           <input type="password" placeholder="Password" onChange={this.handleChangePassword}/>
         </div>
         <div className="form-group">
-          <label></label>
-          <button onClick={this.handleSubmit}>Submit</button>
+          <button className="block" onClick={this.handleSubmit}>Submit</button>
         </div>
       </div>
+      <div className="center valex-lighter-blue mt-neg-10">
+        …
+      </div>
+      <a className="resetlink" href={`http://login.typecraft.org/signup?next=${window.location.href}`}>
+        <button className="btn btn-block mt-10 mb-10 bg-valex-purple valex-lighter-purple">
+          Create new account
+        </button>
+      </a>
+
     </div>
 }
 

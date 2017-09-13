@@ -3,13 +3,40 @@
   height: 60px;
   position: fixed;
   width: 100%;
+  z-index: 1;
   box-sizing: border-box;
 }
 
-.header__left, .header__right{
+.header__left, .header__right, .header__middle{
   vertical-align: top;
   display: inline-block;
   height: 100%;
+}
+
+.header__middle{
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.headernav{
+  height: 100%;
+  margin-left: 5em;
+}
+
+.header__btn:hover .headernav__sublist{
+  display: block;
+}
+
+.headernav__sublist{
+  position: absolute;
+  top: 60px;
+  display: none;
+}
+
+.headernav__subitem{
+  padding: 0.5em 3em 0.5em 1em;
+  width: 200px;
+  border-bottom: 1px solid #48639c;
 }
 
 .header__right{
@@ -31,6 +58,3 @@
   color: #8499c6;
 }
 
-.header__btn:hover{
-  color: #cad3e6;
-}

@@ -43,6 +43,8 @@ export class Header extends React.Component {
         <div className="header__btn">
           <h1 className="light valex-highlight-blue">Valex</h1>
         </div>
+      <div className="header__middle">
+        <HeaderNav />
       </div>
       <div className="header__right">
         {/*<div className="header__btn mr-20">

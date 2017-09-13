@@ -1,9 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './typecraft.css';
-import './normalize.css';
-import App from './views/app/App';
-// import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './typecraft.css'
+import './normalize.css'
+import 'react-select/dist/react-select.css'
+import App from './views/app/App'
+// import registerServiceWorker from './registerServiceWorker'
 import configureStore from './state'
 import api from 'api'
 
@@ -54,7 +55,7 @@ api.getAndSetApiKey()
         </Provider>,
         document.getElementById('root')
       )
-    });
+    })
 
     module.hot.accept('./state/rootSaga', () => {
         const nextConfigureStore = require('./state').default

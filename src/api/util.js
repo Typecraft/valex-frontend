@@ -4,5 +4,5 @@ export function configureSearchParams(config) {
   if (keys.length === 0) {
     return ""
   }
-  return "?" + keys.map(x => `${x}=${config[x].toString()}`).join("&")
+  return keys.map(x => `${x}=${config[x].toString()}`).join("&")
 }

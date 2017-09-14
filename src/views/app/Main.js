@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Switch, Route, Redirect } from 'react-router-dom'
 
+import LemmaOverview from 'views/lemmas/LemmaOverview'
 import LemmaDetail from 'views/lemmas/LemmaDetail'
 import LemmaDetailEdit from 'views/lemmas/LemmaDetailEdit'
 
@@ -26,6 +27,7 @@ export class Main extends React.Component {
         <Redirect exact from="/" to="/app" />
         <Route exact path="/app/lemmas/:lemmaId" component={LemmaDetail}/>
         <Route path="/app/lemmas/:lemmaId/edit" component={LemmaDetailEdit}/>
+        <Route path="/app/lemmas" component={LemmaOverview} />
         <Route path="/" component={UnderConstructionFull} />
       </Switch>
     </main>

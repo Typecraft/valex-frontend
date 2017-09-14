@@ -21,6 +21,25 @@ export class Paginator extends React.Component {
     onChangePage: x => x
   }
 
+  handleKeyUp = event => {
+    if (event.key === 'ArrowLeft') {
+      if (this.props.currentPage !== 1) {
+        this.props.onChangePage(this.props.currentPage-1)
+      }
+    } else if (event.key === 'ArrowRight') {
+      if (this.props.currentPage !== Math.ceil(this.props.count / this.props.pageSize)) {
+        this.props.onChangePage(this.props.currentPage+1)
+      }
+    }
+  }
+  componentDidMount() {
+    document.addEventListener('keyup', this.handleKeyUp)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keyup', this.handleKeyUp)
+  }
+
   render = () => {
     const { count, pageSize, currentPage, onChangePage } = this.props
     const maxPage = Math.ceil(count / pageSize)

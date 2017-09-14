@@ -26,12 +26,13 @@ export class LemmaOverview extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.lemmas || this.props.lemmas.length === 0) {
+    if (!this.props.lemmas) {
       this.props.loadPage(1)
     }
   }
 
   handleChangePage = page => {
+    console.log(page);
     this.props.changePage(page)
   }
 

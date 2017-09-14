@@ -10,6 +10,9 @@ import {
 } from '../util'
 
 import api from 'api'
+import pagination from 'state/pagination'
+
+const paginator = pagination('/api/lemmas/', 'lemmas', 'lemmas')
 
 export const initialState = {
 }
@@ -130,8 +133,15 @@ export function reducer(state = {}, {type, payload}) {
         }
       }
       return state
+    case paginator.types.LOAD_SUCCESS:
+      const { results } = payload
+      return Object.assign(
+        {},
+        addManyByIdToObject(state, results),
+        paginator.reducer(state, {type, payload})
+      )
     default:
-      return state
+      return paginator.reducer(state, {type, payload})
   }
 }
 
@@ -201,7 +211,8 @@ export function* saga() {
     takeEvery(types.LOAD, loadLemma),
     takeEvery(types.CREATE, createLemma),
     takeEvery(types.UPDATE, updateLemma),
-    takeEvery(types.REMOVE, removeLemma)
+    takeEvery(types.REMOVE, removeLemma),
+    call(paginator.saga)
   ])
 }
 
@@ -212,5 +223,6 @@ export default {
   reducer,
   saga,
   selectors,
-  types
+  types,
+  paginator
 }

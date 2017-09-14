@@ -1,0 +1,35 @@
+.paginator{
+
+}
+
+.paginator__nav{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.paginator__navitem{
+  display: inline-block;
+  width: 25px;
+  border-left: 1px solid #4c4c9d;
+  border-top: 1px solid #4c4c9d;
+  border-bottom: 1px solid #4c4c9d;
+  cursor: pointer;
+}
+
+.paginator__navitem:first-of-type{
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.paginator__navitem:last-of-type{
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-right: 1px solid #4c4c9d;
+}
+
+.paginator__navitem.active{
+  background-color: #4c4c9d;
+  color: #e9dde7;
+}

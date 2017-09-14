@@ -16,13 +16,17 @@ export class SimpleForm extends React.Component {
     data: PropTypes.object,
     submitText: PropTypes.string,
     onChange: PropTypes.func,
-    onSubmit: PropTypes.func
+    onSubmit: PropTypes.func,
+    resetOnSubmit: PropTypes.bool
   }
 
   static defaultProps = {
     schema: {},
     data: {},
-    submitText: "Submit"
+    submitText: "Submit",
+    widgets: {},
+    className: '',
+    resetOnSubmit: true
   }
 
   constructor(props){
@@ -33,7 +37,7 @@ export class SimpleForm extends React.Component {
           acc[key] = props.data[key]
         }
         return acc
-      }, {})
+      }, {}) || {}
     }
   }
 
@@ -98,14 +102,20 @@ export class SimpleForm extends React.Component {
     if (this.props.onSubmit) {
       this.props.onSubmit(this.state.formData)
     }
+    if (this.props.resetOnSubmit) {
+      this.setState({
+        ...this.state,
+        formData: {}
+      })
+    }
   }
 
   render = () =>
     <div className={`simpleform valex-form-control ${this.props.className}`} onKeyUp={this.handleKeyDown}>
-      {Object.keys(this.props.schema).map(key => {
+      {Object.keys(this.props.schema).map((key, i) => {
         const { label } = this._overloadSchemaOpts(this.props.schema[key])
         const { type, options } = this._overloadWidgetOpts(this.props.widgets[key])
-        const value = this.state.formData[key]
+        const value = this.state.formData[key] || ""
 
         let inputWidget
         switch (type) {
@@ -114,6 +124,7 @@ export class SimpleForm extends React.Component {
               <SelectInput
                   value={value}
                   name="some name"
+                  autoFocus={i === 0}
                   onChange={({value}) => this.handleChange(key, value)} {...options} />
             )
             break
@@ -122,6 +133,7 @@ export class SimpleForm extends React.Component {
               <TextInput
                   value={value}
                   type={type}
+                  autoFocus={i === 0}
                   onChange={event => this.handleChange(key, event.target.value)} />
             )
             break

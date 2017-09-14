@@ -167,7 +167,7 @@ function* loadLemma(action){
 
 function* createLemma(action) {
   try {
-    const lemmaData = action.payload
+    const lemmaData = Object.assign({}, {meanings: []}, action.payload)
     const lemma = yield call(api.lemmas.create, lemmaData)
     yield put(actions.createSuccess(lemma))
   } catch (e) {

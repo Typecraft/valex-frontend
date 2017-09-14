@@ -12,6 +12,8 @@ import lemmas from 'state/lemmas'
 import FullPageLoader from 'views/generic/loaders/FullPageLoader'
 import Paginator from 'views/pagination/Paginator'
 
+import StaffOnly from 'views/login/StaffOnly'
+
 import './LemmaOverview.css'
 
 export class LemmaOverview extends React.Component {
@@ -43,6 +45,13 @@ export class LemmaOverview extends React.Component {
     return (
       <div className="lemmaoverview">
         <Grid className="mt-40 lemmaoverview__grid">
+        <StaffOnly className="lemmaoverview__create valex-highlight-purple">
+          <Link
+              to="/app/lemmas/create"
+              className="resetlink btn bg-valex-purple valex-highlight-purple">
+            <i className="mdi mdi-plus-circle"></i> Add new
+          </Link>
+          </StaffOnly>
           <Paginator
               currentPage={page}
               next={next}

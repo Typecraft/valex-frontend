@@ -1,5 +1,10 @@
+.lemmaoverview{
+  position: relative;
+}
+
 .lemmaoverview__grid{
   width: 900px;
+  position: relative;
 }
 
 .lemmaoverview__table{
@@ -34,4 +39,10 @@
 .lemmaoverview__lemmaentry:hover{
   transform: scale(1.02);
   transition: transform 0.2s ease;
+}
+
+
+.lemmaoverview__create{
+  position: absolute;
+  right: 0;
 }

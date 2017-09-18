@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const HeaderNav = () => (
+export const HeaderNav = () => (
   <div className="headernav">
     <div className="header__btn">
       <Link className="resetlink mr-20" to="/app/">

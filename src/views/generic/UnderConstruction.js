@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UnderConstruction = ({className=""}) => (
+export const UnderConstruction = ({className=""}) => (
   <div className={"underconstruction " + className} style={{textAlign: 'center'}}>
     <div>
       <i className="mdi mdi-wrench" style={{fontSize: 80}}></i>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { ThreeBounce } from 'better-react-spinkit'
 
-const Loader = ({size}) => (
+export const Loader = ({size}) => (
   <ThreeBounce size={size} />
 )
 

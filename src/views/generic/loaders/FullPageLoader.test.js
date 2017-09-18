@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { App } from './App'
+import { FullPageLoader } from './FullPageLoader'
 
 it('should render without crashing', () => {
-  shallow( <App />)
+  shallow( <FullPageLoader />)
 })

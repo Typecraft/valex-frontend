@@ -88,12 +88,11 @@ const createSaga = (baseEndpoint, name, types, actions) => {
         )
       ))
     } catch (e) {
-      console.log(e.toString());
-      // yield put(actions.loadError({
-        // detail: JSON.stringify(e.response.data),
-        // title: `Error loading page defined by: baseUrl=${baseEndpoint} config=${config} page=${page}`,
-        // meta: {...action.meta, payload: action.payload}
-      // }))
+      yield put(actions.loadError({
+        detail: JSON.stringify(e.response.data),
+        title: `Error loading page defined by: baseUrl=${baseEndpoint} config=${config} page=${page}`,
+        meta: {...action.meta, payload: action.payload}
+      }))
     }
   }
 
@@ -128,8 +127,6 @@ export const withSelectors = (selectors, getState) => {
     pagination: createSelectors(getState)
   }
 }
-
-
 
 export default function createPaginationInterface(baseEndpoint, name, getState=null) {
   const types = createTypes(name)

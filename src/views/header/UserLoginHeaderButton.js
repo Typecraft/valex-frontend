@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const UserLoginHeaderButton = ({currentUser, onClickLogin, onClickAccount}) => {
+export const UserLoginHeaderButton = ({currentUser, onClickLogin, onClickAccount}) => {
   if (currentUser) {
     return (
       <div className="header__btn" onClick={onClickAccount}>

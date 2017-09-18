@@ -33,11 +33,11 @@ const data = {
 
 export class LemmaCreate extends React.Component {
   static propTypes = {
-
+    create: PropTypes.func
   }
 
   static defaultProps = {
-
+    create: x => x
   }
 
   render = () =>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import queryString from 'query-string'
 
-import { Grid, Row, Col } from 'react-flexbox-grid'
+import { Grid } from 'react-flexbox-grid'
 import { Link } from 'react-router-dom'
 
 import lemmas from 'state/lemmas'
@@ -18,11 +18,15 @@ import './LemmaOverview.css'
 
 export class LemmaOverview extends React.Component {
   static propTypes = {
-
+    currentPage: PropTypes.number,
+    lemmas: PropTypes.arrayOf(PropTypes.object),
+    count: PropTypes.number
   }
 
   static defaultProps = {
-
+    currentPage: 1,
+    lemmas: [],
+    count: 0
   }
 
   componentDidMount() {
@@ -32,7 +36,6 @@ export class LemmaOverview extends React.Component {
   }
 
   handleChangePage = page => {
-    console.log(page);
     this.props.changePage(page)
   }
 
@@ -46,12 +49,12 @@ export class LemmaOverview extends React.Component {
     return (
       <div className="lemmaoverview">
         <Grid className="mt-40 lemmaoverview__grid">
-        <StaffOnly className="lemmaoverview__create valex-highlight-purple">
-          <Link
-              to="/app/lemmas/create"
-              className="resetlink btn bg-valex-purple valex-highlight-purple">
-            <i className="mdi mdi-plus-circle"></i> Add new
-          </Link>
+          <StaffOnly className="lemmaoverview__create valex-highlight-purple">
+            <Link
+                to="/app/lemmas/create"
+                className="resetlink btn bg-valex-purple valex-highlight-purple">
+              <i className="mdi mdi-plus-circle"></i> Add new
+            </Link>
           </StaffOnly>
           <Paginator
               currentPage={page}

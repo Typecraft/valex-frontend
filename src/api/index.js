@@ -1,6 +1,7 @@
 import axios from 'axios'
 import users from './users'
 import lemmas from './lemmas'
+import meanings from './meanings'
 
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 axios.defaults.headers.put['Content-Type'] = 'application/json'
@@ -19,5 +20,6 @@ export async function getAndSetApiKey() {
 export default {
   getAndSetApiKey,
   users,
-  lemmas
+  lemmas,
+  meanings
 }

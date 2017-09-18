@@ -47,6 +47,7 @@ const createReducer = (name, types) => (state = {}, {type, payload}) => {
 
 const createActionCreators = (name, types) => ({
   load(page = 1, config = "") {
+    console.log('aergajierg');
     return {
       type: types.LOAD,
       payload: {

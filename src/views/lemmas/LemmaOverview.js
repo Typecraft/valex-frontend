@@ -82,11 +82,11 @@ export class LemmaOverview extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   const page = queryString.parse(ownProps.location.search).page || 1
-  const currentPage = lemmas.paginator.selectors.getPage(state, page)
+  const currentPage = lemmas.selectors.pagination.getPage(state, page)
   return {
     lemmas: (currentPage || {}).results,
     currentPage,
-    count: lemmas.paginator.selectors.getConfigCount(state)
+    count: lemmas.selectors.pagination.getConfigCount(state)
   }
 }
 

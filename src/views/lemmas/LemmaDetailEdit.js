@@ -14,9 +14,9 @@ import SimpleForm from 'views/generic/forms/SimpleForm'
 
 const formSchema = {
   lemma: 'Lemma',
-  description: 'Description',
-  citform: 'Citation Form',
-  language: 'Language'
+  citationForm: 'Citation Form',
+  language: 'Language',
+  comment: 'Comment'
 }
 
 const formWidgets = {
@@ -85,7 +85,8 @@ export class LemmaDetailEdit extends React.Component {
                   widgets={formWidgets}
                   data={lemma}
                   submitText="Save"
-                  onSubmit={this.handleSubmit} />
+                  onSubmit={this.handleSubmit}
+                  resetOnSubmit={false} />
               </Col>
             </Row>
             <Row className="mt-20">

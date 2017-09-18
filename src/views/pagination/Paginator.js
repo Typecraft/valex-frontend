@@ -22,6 +22,9 @@ export class Paginator extends React.Component {
   }
 
   handleKeyUp = event => {
+    if (event.altKey || event.shiftKey || event.ctrlKey) {
+      return
+    }
     if (event.key === 'ArrowLeft') {
       if (this.props.currentPage !== 1) {
         this.props.onChangePage(this.props.currentPage-1)

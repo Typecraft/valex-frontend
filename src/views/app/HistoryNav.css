@@ -1,0 +1,17 @@
+.historynav{
+  position: absolute;
+  top: 60px;
+  left: 30px;
+  border-radius: 0 0 5px 5px;
+  user-select: none;
+}
+
+.historynav > div{
+  display: inline-block;
+  padding: 0.1em 0.6em 0.3em 0.6em;
+  cursor: pointer;
+}
+
+.historynav > div.active{
+  color: white;
+}

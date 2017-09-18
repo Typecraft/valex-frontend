@@ -61,16 +61,16 @@ export class LemmaDetail extends React.Component {
                       <td>{lemma.lemma}</td>
                     </tr>
                     <tr>
+                      <td>Citation form</td>
+                      <td>{lemma.citationForm || 'This lemma has no registered Citation Form'}</td>
+                    </tr>
+                    <tr>
                       <td>Language</td>
                       <td>{lemma.language}</td>
                     </tr>
                     <tr>
-                      <td>Citation form</td>
-                      <td>{lemma.citform || 'This lemma has no registered Citation Form'}</td>
-                    </tr>
-                    <tr>
                       <td>Comments</td>
-                      <td>{lemma.comments || 'This lemma has no comments'}</td>
+                      <td>{lemma.comment || 'This lemma has no comments'}</td>
                     </tr>
                   </tbody>
                 </table>

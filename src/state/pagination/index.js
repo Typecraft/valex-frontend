@@ -104,9 +104,8 @@ const createSaga = (baseEndpoint, name, types, actions) => {
   }
 }
 
-export const createSelectors = (stateMountPoint) => {
-  console.log(stateMountPoint);
-  const getAll = state => state[stateMountPoint].pagination
+export const createSelectors = (getState) => {
+  const getAll = state => getState(state)
   const getConfig = (state, config) => getAll(state)[config || ""]
   const getConfigCount = (state, config) => (getConfig(state, config) || {}).count
   const getPage = (state, page, config) => (getConfig(state, config) || {})[page]
@@ -123,20 +122,25 @@ export const createSelectors = (stateMountPoint) => {
   }
 }
 
+export const withSelectors = (selectors, getState) => {
+  return {
+    ...selectors,
+    pagination: createSelectors(getState)
+  }
+}
 
 
-export default function createPaginationInterface(baseEndpoint, name, stateMountPoint) {
+
+export default function createPaginationInterface(baseEndpoint, name, getState=null) {
   const types = createTypes(name)
   const reducer = createReducer(name, types)
   const actions = createActionCreators(name, types)
   const saga = createSaga(baseEndpoint, name, types, actions)
-  const selectors = createSelectors(stateMountPoint)
 
   return {
     actions,
     reducer,
     saga,
-    selectors,
     types
   }
 }

@@ -10,7 +10,10 @@ import {
 } from '../util'
 
 import api from 'api'
-import pagination from 'state/pagination'
+import {
+  withSelectors,
+  default as pagination
+} from 'state/pagination'
 
 const paginator = pagination('/api/lemmas/', 'lemmas', 'lemmas')
 
@@ -222,7 +225,7 @@ export default {
   constants,
   reducer,
   saga,
-  selectors,
+  selectors: withSelectors(selectors, state => state.lemmas.pagination),
   types,
   paginator
 }

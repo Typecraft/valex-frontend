@@ -7,25 +7,25 @@ import queryString from 'query-string'
 import { Grid } from 'react-flexbox-grid'
 import { Link } from 'react-router-dom'
 
-import lemmas from 'state/lemmas'
+import meanings from 'state/meanings'
 
 import FullPageLoader from 'views/generic/loaders/FullPageLoader'
 import Paginator from 'views/pagination/Paginator'
 
 import StaffOnly from 'views/login/StaffOnly'
 
-import './LemmaOverview.css'
+import './MeaningOverview.css'
 
-export class LemmaOverview extends React.Component {
+export class MeaningOverview extends React.Component {
   static propTypes = {
-    currentPage: PropTypes.number,
-    lemmas: PropTypes.arrayOf(PropTypes.object),
+    currentPage: PropTypes.object,
+    meanings: PropTypes.arrayOf(PropTypes.object),
     count: PropTypes.number
   }
 
   static defaultProps = {
-    currentPage: 1,
-    lemmas: [],
+    currentPage: {page: 1},
+    meanings: [],
     count: 0
   }
 
@@ -38,18 +38,18 @@ export class LemmaOverview extends React.Component {
   }
 
   render = () => {
-    if (!this.props.lemmas) {
+    if (!this.props.meanings) {
       return (
         <FullPageLoader />
       )
     }
     const { page, next } = this.props.currentPage
     return (
-      <div className="lemmaoverview">
-        <Grid className="mt-40 lemmaoverview__grid">
-          <StaffOnly className="lemmaoverview__create valex-highlight-purple">
+      <div className="meaningoverview">
+        <Grid className="mt-40 meaningoverview__grid">
+          <StaffOnly className="meaningoverview__create valex-highlight-purple">
             <Link
-                to="/app/lemmas/create"
+                to="/app/meanings/create"
                 className="resetlink btn bg-valex-purple valex-highlight-purple">
               <i className="mdi mdi-plus-circle"></i> Add new
             </Link>
@@ -60,15 +60,15 @@ export class LemmaOverview extends React.Component {
               count={this.props.count}
               pageSize={4}
               onChangePage={this.handleChangePage}>
-            <table className="lemmaoverview__table">
+            <table className="meaningoverview__table">
               <thead>
-                <td className="bold">Lemma</td>
+                <td className="bold">Meaning</td>
               </thead>
               <tbody>
-                {Object.values(this.props.lemmas).map(lemma => (
-                  <tr key={lemma.id} className="lemmaoverview__lemmaentry">
-                    <Link className="resetlink" to={`/app/lemmas/${lemma.id}`}>
-                      <td>{lemma.lemma}</td>
+                {Object.values(this.props.meanings).map(meaning => (
+                  <tr key={meaning.id} className="meaningoverview__meaningentry">
+                    <Link className="resetlink" to={`/app/meanings/${meaning.id}`}>
+                      <td>{meaning.meaning}</td>
                     </Link>
                   </tr>
                 ))}
@@ -83,24 +83,24 @@ export class LemmaOverview extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   const page = queryString.parse(ownProps.location.search).page || 1
-  const currentPage = lemmas.selectors.pagination.getPage(state, page)
+  const currentPage = meanings.selectors.pagination.getPage(state, page)
   return {
     page,
-    lemmas: (currentPage || {}).results,
+    meanings: (currentPage || {}).results,
     currentPage,
-    count: lemmas.selectors.pagination.getConfigCount(state)
+    count: meanings.selectors.pagination.getConfigCount(state)
   }
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     changePage: page => {
-      dispatch(lemmas.paginator.actions.load(page))
+      dispatch(meanings.paginator.actions.load(page))
       const newUrl = ownProps.location.pathname + `?page=${page}`
       ownProps.history.push(newUrl)
     },
-    loadPage: page => dispatch(lemmas.paginator.actions.load(page))
+    loadPage: page => dispatch(meanings.paginator.actions.load(page))
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LemmaOverview))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MeaningOverview))

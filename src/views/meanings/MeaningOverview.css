@@ -1,0 +1,48 @@
+.meaningoverview{
+  position: relative;
+}
+
+.meaningoverview__grid{
+  width: 900px;
+  position: relative;
+}
+
+.meaningoverview__table{
+  width: 100%;
+  padding-top: 1em;
+}
+
+.meaningoverview__table td{
+  padding: 1em 1.5em;
+}
+
+.meaningoverview__table thead td{
+  font-weight: 600;
+  padding: 1em 1em;
+}
+
+.meaningoverview__meaningentry:nth-of-type(odd) {
+  background-color: #eee;
+}
+
+.meaningoverview__meaningentry > a{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.meaningoverview__meaningentry{
+  transition: transform 0.2s ease;
+}
+
+.meaningoverview__meaningentry:hover{
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+
+.meaningoverview__create{
+  position: absolute;
+  right: 0;
+}

@@ -1,0 +1,33 @@
+
+.meaningdetailedit{
+  min-height: 100%;
+}
+
+.meaningdetailedit__inner{
+  position: relative;
+}
+
+.meaningdetailedit--loading, .meaningdetailedit--noexists{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.meaningdetailedit__back{
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0.5em;
+  border: 1px solid #9f9f9f;
+  padding: 0.5em 1em;
+  font-weight: 300;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.meaningdetailedit__edit:hover{
+  background-color: #9f9f9f;
+  color: #ccc;
+}

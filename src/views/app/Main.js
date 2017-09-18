@@ -7,6 +7,11 @@ import LemmaDetail from 'views/lemmas/LemmaDetail'
 import LemmaDetailEdit from 'views/lemmas/LemmaDetailEdit'
 import LemmaCreate from 'views/lemmas/LemmaCreate'
 
+import MeaningOverview from 'views/meanings/MeaningOverview'
+import MeaningDetail from 'views/meanings/MeaningDetail'
+import MeaningDetailEdit from 'views/meanings/MeaningDetailEdit'
+import MeaningCreate from 'views/meanings/MeaningCreate'
+
 import Dashboard from './Dashboard'
 import UnderConstructionFull from 'views/generic/UnderConstructionFull'
 
@@ -30,6 +35,10 @@ export class Main extends React.Component {
         <Route exact path="/app/lemmas/:lemmaId" component={LemmaDetail}/>
         <Route path="/app/lemmas/:lemmaId/edit" component={LemmaDetailEdit}/>
         <Route path="/app/lemmas" component={LemmaOverview} />
+        <Route path="/app/meanings/create" component={MeaningCreate} />
+        <Route exact path="/app/meanings/:meaningId" component={MeaningDetail}/>
+        <Route path="/app/meanings/:meaningId/edit" component={MeaningDetailEdit}/>
+        <Route path="/app/meanings" component={MeaningOverview} />
         <Route path="/" component={UnderConstructionFull} />
       </Switch>
     </main>

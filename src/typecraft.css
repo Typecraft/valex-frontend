@@ -304,7 +304,8 @@ button, .btn {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  text-align: center; }
+  text-align: center;
+  text-decoration: none; }
   button:active, .btn:active {
     -webkit-transform: scale(1.02, 1.02);
             transform: scale(1.02, 1.02); }

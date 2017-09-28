@@ -10,12 +10,10 @@ import {
 } from '../util'
 
 import api from 'api'
-import {
-  withSelectors,
-  default as pagination
-} from 'state/pagination'
+import pagination from 'state/pagination'
+import meaningvalences from 'state/meaningvalences'
 
-const paginator = pagination('/api/meanings/', 'meanings', 'meanings')
+const paginator = pagination('/api/meanings/', 'meanings', selectors.getAll)
 
 export const initialState = {
 }
@@ -39,13 +37,14 @@ export const types = {
 }
 
 export const actions = {
-  load(config, multiple=false) {
+  load(config, {multiple=false, loadRelated = 0} = {}) {
     return {
       type: types.LOAD,
       payload: config,
       meta: {
         single: !multiple,
-        multiple
+        multiple,
+        loadRelated
       }
     }
   },
@@ -149,11 +148,32 @@ export function reducer(state = {}, {type, payload}) {
 }
 
 // SAGAS
+function* loadRelated(meaning, depth) {
+  try {
+    const  _meaningValences  = meaning.valences
+    yield all(
+      (_meaningValences || [])
+      .map((meaningId) => put(meaningvalences.actions.load(meaningId, {
+        loadRelated: depth-1
+      })))
+    )
+  } catch (e) {
+    yield put(actions.loadError({
+        detail: JSON.stringify((e.response || {}).data || e.toString()),
+        title: `Error loading lemma related entities`,
+        meta: {}
+    }))
+  }
+}
+
 function* loadMeaning(action){
   try {
     if (action.meta.single) {
       const meaning = yield call(api.meanings.readSingle, action.payload)
       yield put(actions.loadSuccess([meaning]))
+      if (action.meta.loadRelated) {
+        yield call(loadRelated, meaning, action.meta.loadRelated)
+      }
     } else {
       const {results} = yield call(api.meanings.readMultiple, action.payload)
       yield put(actions.loadSuccess(results))
@@ -225,7 +245,7 @@ export default {
   constants,
   reducer,
   saga,
-  selectors: withSelectors(selectors, state => state.meanings.pagination),
+  selectors,
   types,
   paginator
 }

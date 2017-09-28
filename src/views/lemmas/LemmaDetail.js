@@ -3,12 +3,16 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import lemmas from 'state/lemmas'
+import meanings from 'state/meanings'
+
+import * as rootSelectors from 'state/selectors'
 
 import { ThreeBounce } from 'better-react-spinkit'
 import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
 import StaffOnly from 'views/login/StaffOnly'
+import MeaningLargeInline from 'views/meanings/MeaningLargeInline'
 
 import './LemmaDetail.css'
 
@@ -22,13 +26,15 @@ export class LemmaDetail extends React.Component {
   }
 
   componentDidMount = () => {
-    if (!this.props.lemma) {
-      this.props.loadLemma()
-    }
+    this.props.loadLemma()
   }
 
   render = () => {
-    const lemma = this.props.lemma
+    const {
+      lemma,
+      lemmaMeanings
+    } = this.props
+
     // Loading
     if (this.props.lemma === undefined) {
       return (
@@ -52,7 +58,7 @@ export class LemmaDetail extends React.Component {
               <StaffOnly><Link to={`/app/lemmas/${lemma.id}/edit`} className="lemmadetail__edit darker-gray">Edit <i className="mdi mdi-pencil"></i></Link></StaffOnly>
             </Row>
             <Row className="mt-20">
-              <h3 className="light">Basic data</h3>
+              <h3 className="light valex-purple">Basic data</h3>
               <Col xs={12}>
                 <table>
                   <tbody>
@@ -77,14 +83,14 @@ export class LemmaDetail extends React.Component {
               </Col>
             </Row>
             <Row className="mt-20">
-              <h3 className="light">Meanings</h3>
+              <h3 className="light valex-purple">Meanings</h3>
               <Col xs={12}>
-                {!lemma.meanings || lemma.meanings.length === 0 ?
+                {!lemmaMeanings || Object.keys(lemmaMeanings).length === 0 ?
                   (<div>This lemma has no associated meanings</div>):
                   (
                     <div>
-                    {lemma.meanings.map(meaning => (
-                      <div key={meaning}>{meaning}</div>
+                    {Object.values(lemmaMeanings).filter(x => x).map(meaning => (
+                      <MeaningLargeInline className="mt-10" key={meaning.id} meaning={meaning} />
                     ))}
                     </div>
                   )
@@ -99,14 +105,18 @@ export class LemmaDetail extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
+  const {
+    lemmaId
+  } = ownProps.match.params
   return {
-    lemma: lemmas.selectors.getDetail(state, ownProps)
+    lemma: lemmas.selectors.getDetail(state, ownProps),
+    lemmaMeanings: rootSelectors.getLemmaMeanings(state, lemmaId)
   }
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    loadLemma: () => dispatch(lemmas.actions.load(ownProps.match.params.lemmaId))
+    loadLemma: () => dispatch(lemmas.actions.load(ownProps.match.params.lemmaId, {loadRelated: 1})),
   }
 }
 

@@ -16,9 +16,10 @@
   padding: 1em 1.5em;
 }
 
-.lemmaoverview__table thead td{
+.lemmaoverview__table thead th{
   font-weight: 600;
   padding: 1em 1em;
+  text-align: left;
 }
 
 .lemmaoverview__lemmaentry:nth-of-type(odd) {

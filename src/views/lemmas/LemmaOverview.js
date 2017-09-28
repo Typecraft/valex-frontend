@@ -18,7 +18,7 @@ import './LemmaOverview.css'
 
 export class LemmaOverview extends React.Component {
   static propTypes = {
-    currentPage: PropTypes.number,
+    currentPage: PropTypes.object,
     lemmas: PropTypes.arrayOf(PropTypes.object),
     count: PropTypes.number
   }
@@ -62,7 +62,7 @@ export class LemmaOverview extends React.Component {
               onChangePage={this.handleChangePage}>
             <table className="lemmaoverview__table">
               <thead>
-                <td className="bold">Lemma</td>
+                <th className="bold">Lemma</th>
               </thead>
               <tbody>
                 {Object.values(this.props.lemmas).map(lemma => (
@@ -83,12 +83,12 @@ export class LemmaOverview extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   const page = queryString.parse(ownProps.location.search).page || 1
-  const currentPage = lemmas.selectors.pagination.getPage(state, page)
+  const currentPage = lemmas.paginator.selectors.getPage(state, page)
   return {
     page,
     lemmas: (currentPage || {}).results,
     currentPage,
-    count: lemmas.selectors.pagination.getConfigCount(state)
+    count: lemmas.paginator.selectors.getConfigCount(state)
   }
 }
 

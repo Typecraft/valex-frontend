@@ -61,8 +61,22 @@ export class MeaningValenceDetail extends React.Component {
         <div className="meaningvalencedetail">
           <Grid className="meaningvalencedetail__inner">
             <Row className="mt-40">
-              <h1 className="light darker-gray">{valenceFrame.name} - {meaning.meaning}</h1>
-              <StaffOnly><Link to={`/app/meaning-valences/${meaningValence.id}/edit`} className="meaningvalencedetail__edit darker-gray">Edit <i className="mdi mdi-pencil"></i></Link></StaffOnly>
+              <Col xs={10}>
+                <Link
+                    to={`/app/meanings/${meaning.id}/`}
+                    className="btn btn-medium bg-valex-purple valex-highlight-purple">
+                  <i className="mdi mdi-arrow-top-left"></i> Up to meaning
+                </Link>
+              </Col>
+              <Col xs={2}>
+                <StaffOnly>
+                  <Link
+                      to={`/app/meaning-valences/${meaningValence.id}/edit`}
+                      className="meaningvalencedetail__edit darker-gray">
+                    Edit <i className="mdi mdi-pencil"></i>
+                  </Link>
+                </StaffOnly>
+              </Col>
             </Row>
             <Row className="mt-20">
               <h3 className="light">Basic data</h3>

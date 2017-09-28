@@ -51,9 +51,26 @@ export class MeaningDetail extends React.Component {
       return (
         <div className="meaningdetail">
           <Grid className="meaningdetail__inner">
-            <Row className="mt-40">
+            <Row className="mt-40 mb-20">
+              <Col xs={10}>
+                <Link
+                    to={`/app/lemmas/${meaning.lemma}/`}
+                    className="btn btn-medium bg-valex-purple valex-highlight-purple">
+                  <i className="mdi mdi-arrow-top-left"></i> Up to lemma
+                </Link>
+              </Col>
+              <Col xs={2}>
+                <StaffOnly style={{float: "right"}}>
+                  <Link
+                      to={`/app/meanings/${meaning.id}/edit`}
+                      className="meaningdetail__edit darker-gray">
+                      Edit <i className="mdi mdi-pencil"></i>
+                  </Link>
+                </StaffOnly>
+              </Col>
+            </Row>
+            <Row className="mt-30">
               <h1 className="light darker-gray">{meaning.meaning}</h1>
-              <StaffOnly><Link to={`/app/meanings/${meaning.id}/edit`} className="meaningdetail__edit darker-gray">Edit <i className="mdi mdi-pencil"></i></Link></StaffOnly>
             </Row>
             <Row className="mt-20">
               <h3 className="light">Basic data</h3>

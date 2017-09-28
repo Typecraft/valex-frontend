@@ -12,6 +12,8 @@ import MeaningDetail from 'views/meanings/MeaningDetail'
 import MeaningDetailEdit from 'views/meanings/MeaningDetailEdit'
 import MeaningCreate from 'views/meanings/MeaningCreate'
 
+import MeaningValenceDetail from 'views/meaningvalences/MeaningValenceDetail'
+
 import Dashboard from './Dashboard'
 import UnderConstructionFull from 'views/generic/UnderConstructionFull'
 
@@ -39,6 +41,8 @@ export class Main extends React.Component {
         <Route exact path="/app/meanings/:meaningId" component={MeaningDetail}/>
         <Route path="/app/meanings/:meaningId/edit" component={MeaningDetailEdit}/>
         <Route path="/app/meanings" component={MeaningOverview} />
+        <Route exact path="/app/meaning-valences/:meaningValenceId" component={MeaningValenceDetail}/>
+        {/*<Route path="/app/meaning-valences/:meaningId/edit" component={MeaningDetailEdit}/>*/}
         <Route path="/" component={UnderConstructionFull} />
       </Switch>
     </main>

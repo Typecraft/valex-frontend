@@ -11,7 +11,7 @@ export class Paginator extends React.Component {
     onChangePage: PropTypes.func,
     children: PropTypes.object,
     count: PropTypes.number,
-    next: PropTypes.bool
+    next: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
   }
 
   static defaultProps = {

@@ -10,17 +10,19 @@ export class StaffOnly extends React.Component {
   static propTypes = {
     children: PropTypes.object,
     loggedIn: PropTypes.bool,
-    className: PropTypes.string
+    className: PropTypes.string,
+    style: PropTypes.object
   }
 
   static defaultProps = {
-
+    className: "",
+    style: {}
   }
 
   render = () => {
     if (this.props.loggedIn && this.props.currentUser && this.props.currentUser.is_staff) {
       return (
-        <div className={`staffonly ${this.props.className}`}>
+        <div className={`staffonly ${this.props.className}`} style={this.props.style}>
           {this.props.children}
         </div>
       )

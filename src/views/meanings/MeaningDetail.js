@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import meanings from 'state/meanings'
+import * as rootSelectors from 'state/selectors'
 
 import { ThreeBounce } from 'better-react-spinkit'
 import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
 import StaffOnly from 'views/login/StaffOnly'
+import MeaningValenceInline from 'views/meaningvalences/MeaningValenceInline'
 
 import './MeaningDetail.css'
 
@@ -22,13 +24,15 @@ export class MeaningDetail extends React.Component {
   }
 
   componentDidMount = () => {
-    if (!this.props.meaning) {
-      this.props.loadMeaning()
-    }
+    this.props.loadMeaning()
   }
 
   render = () => {
-    const meaning = this.props.meaning
+    const {
+      meaning,
+      meaningValences
+    }= this.props
+
     // Loading
     if (this.props.meaning === undefined) {
       return (
@@ -69,15 +73,21 @@ export class MeaningDetail extends React.Component {
               </Col>
             </Row>
             <Row className="mt-20">
-              <h3 className="light">Meanings</h3>
+              <h3 className="light">Valences</h3>
               <Col xs={12}>
-                {!meaning.valences || meaning.valences.length === 0 ?
+                {!meaningValences || meaningValences.length === 0 ?
                   (<div>This meaning has no associated valences</div>):
                   (
                     <div>
-                    {meaning.valences.map(meaning => (
-                      <div key={meaning}>{meaning}</div>
-                    ))}
+                      {Object.values(meaningValences)
+                        .filter(x => x)
+                        .map(meaningValence => (
+                        <MeaningValenceInline
+                            className="mt-10"
+                            key={meaningValence.id}
+                            meaningValence={meaningValence}
+                            meaning={meaning} />
+                      ))}
                     </div>
                   )
                 }
@@ -91,14 +101,16 @@ export class MeaningDetail extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
+  const { meaningId } = ownProps.match.params
   return {
-    meaning: meanings.selectors.getDetail(state, ownProps)
+    meaning: meanings.selectors.getDetail(state, ownProps),
+    meaningValences: rootSelectors.getMeaningValences(state, meaningId)
   }
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    loadMeaning: () => dispatch(meanings.actions.load(ownProps.match.params.meaningId))
+    loadMeaning: () => dispatch(meanings.actions.load(ownProps.match.params.meaningId, {loadRelated: 1}))
   }
 }
 

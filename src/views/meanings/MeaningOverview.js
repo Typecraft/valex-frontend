@@ -83,12 +83,12 @@ export class MeaningOverview extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   const page = queryString.parse(ownProps.location.search).page || 1
-  const currentPage = meanings.selectors.pagination.getPage(state, page)
+  const currentPage = meanings.paginator.selectors.getPage(state, page)
   return {
     page,
     meanings: (currentPage || {}).results,
     currentPage,
-    count: meanings.selectors.pagination.getConfigCount(state)
+    count: meanings.paginator.selectors.getConfigCount(state)
   }
 }
 

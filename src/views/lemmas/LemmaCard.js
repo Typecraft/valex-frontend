@@ -16,7 +16,7 @@ export const LemmaCard = ({
     <div className="lemmacard__lemma huge darker-gray">{lemma.lemma}</div>
     <div className="lemmacard__comment large black-3 ml-5">{lemma.comment}</div>
     <div className="lemmacard__language black-3 ml-5">{iso639ToLang(lemma.language)}</div>
-    <div className="lemmacard__meanings ml-5 mb-20">{(lemma.meanings || []).length} meanings</div>
+    <div className="lemmacard__meanings ml-5 mb-20">{(lemma.meanings || []).length} associated meanings</div>
     <Link
         to={`/app/lemmas/${lemma.id}`}
         className="card__bottom bg-valex-orange valex-highlight-orange large center">

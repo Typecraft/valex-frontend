@@ -95,7 +95,7 @@ export class MeaningDetail extends React.Component {
             <Row className="mt-20">
               <h3 className="light">Valences</h3>
               <Col xs={12}>
-                {!meaningValences || meaningValences.length === 0 ?
+                {!meaningValences || Object.keys(meaningValences).length === 0 ?
                   (<div>This meaning has no associated valences</div>):
                   (
                     <div>
@@ -117,7 +117,7 @@ export class MeaningDetail extends React.Component {
               <h3 className="light">Related meanings</h3>
               <Col xs={12}>
                 {!relatedMeanings || relatedMeanings.length === 0 ?
-                  (<div>This meaning has not related meanings</div>) :
+                  (<div>This meaning has no related meanings</div>) :
                   (
                     <div>
                       {relatedMeanings

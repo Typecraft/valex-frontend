@@ -131,6 +131,9 @@ h1, h1, h2, h3, h4, h5, h6 {
 .valex-lighter-orange {
   color: #fcddcf; }
 
+.valex-light-orange {
+  color: #fabb9e; }
+
 .valex-orange {
   color: #f7996e; }
 
@@ -3284,3 +3287,8 @@ button, .btn {
 .login-form-control.form-brown.form-colors-inverse button {
   background-color: #8c8157;
   color: #e1ddce; }
+
+.resetlist {
+  list-style: none;
+  margin: 0;
+  padding: 0; }

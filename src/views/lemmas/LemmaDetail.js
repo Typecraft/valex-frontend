@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import lemmas from 'state/lemmas'
-import meanings from 'state/meanings'
 
 import * as rootSelectors from 'state/selectors'
 

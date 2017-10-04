@@ -8,6 +8,11 @@ import { Grid, Row, Col } from 'react-flexbox-grid'
 
 import UnderConstruction from 'views/generic/UnderConstruction'
 import LemmaCard from 'views/lemmas/LemmaCard'
+import SimpleForm from 'views/generic/forms/SimpleForm'
+
+import DashboardSubscribe from 'views/dashboard/DashboardSubscribe'
+import DashboardFooterNavigation from 'views/dashboard/DashboardFooterNavigation'
+import DashboardContact from 'views/dashboard/DashboardContact'
 
 import './Dashboard.css'
 
@@ -70,13 +75,42 @@ export class Dashboard extends React.Component {
             </Row>
           </Grid>
         </div>
+        <div className="dashboard__footer bg-darker-gray">
+          <Grid>
+            <Row className="pb-10" style={{borderBottom: "1px solid gray"}}>
+              <Col md={4} className="subscribe">
+                <DashboardSubscribe />
+              </Col>
+              <Col md={4} className="navigation">
+                <DashboardFooterNavigation />
+              </Col>
+              <Col md={4} className="Contact">
+                <DashboardContact />
+              </Col>
+            </Row>
+            <Row className="pt-10">
+              <Col md={6}>
+                <p className="gray center">
+                  &copy; Copyright 2017
+                </p>
+              </Col>
+              <Col md={6}>
+                <h2 className="light valex-orange">Other sites</h2>
+                <ul className="resetlist gray">
+                  <li><a className="resetlink" href="typecraft.org">typecraft.org</a></li>
+                  <li><a className="resetlink" href="login.typecraft.org">login.typecraft.org</a></li>
+                  <li><a className="resetlink" href="runyankitara.typecraft.org">runyankitara.typecraft.org</a></li>
+                </ul>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  console.log(lemmas.selectors.getLemmaOfTheDay(state))
   return {
     lemmaOfTheDay: lemmas.selectors.getLemmaOfTheDay(state)
   }

@@ -1,0 +1,17 @@
+.dashboardcontact .valex-form-control textarea{
+  width: 250px;
+  border-radius: 5px;
+  border: 1px solid #f7996e;
+  padding: 0.5em;
+}
+.dashboardcontact .valex-form-control button{
+  background-color: #f7996e;
+  color: white;
+}
+
+.dashboardcontact .valex-form-control input{
+  border: 1px solid #f7996e;
+}
+.dashboardcontact .valex-form-control .form-icon{
+  color: #f7996e;
+}

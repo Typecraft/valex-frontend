@@ -1,0 +1,12 @@
+.dashboardfooternavigation .container-fluid{
+  padding: 0;
+}
+
+.dashboardfooternavigation ul{
+  list-style: none;
+  padding-left: 0.5em;
+}
+
+.dashboardfooternavigation li{
+  padding: 0.25em 0;
+}

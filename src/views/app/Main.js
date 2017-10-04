@@ -14,7 +14,7 @@ import MeaningCreate from 'views/meanings/MeaningCreate'
 
 import MeaningValenceDetail from 'views/meaningvalences/MeaningValenceDetail'
 
-import Dashboard from './Dashboard'
+import Dashboard from 'views/dashboard/Dashboard'
 import UnderConstructionFull from 'views/generic/UnderConstructionFull'
 
 import './Main.css'

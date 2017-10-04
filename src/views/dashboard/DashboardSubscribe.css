@@ -1,0 +1,11 @@
+.dashboardsubscribe .valex-form-control button{
+  background-color: #f7996e;
+  color: white;
+}
+
+.dashboardsubscribe .valex-form-control input{
+  border: 1px solid #f7996e;
+}
+.dashboardsubscribe .valex-form-control .form-icon{
+  color: #f7996e;
+}

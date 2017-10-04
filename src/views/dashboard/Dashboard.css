@@ -35,3 +35,9 @@
   font-family: 'Work Sans', sans-serif;
   font-weight: 300;
 }
+
+.dashboard__footer{
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+

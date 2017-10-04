@@ -22,7 +22,7 @@ export const DashboardContact = ({onContact}) => (
         <span className="form-icon">
           <i className="mdi mdi-email"></i>
         </span>
-        <input type="text" placeholder="Email"/>
+        <input type="text" placeholder="Your email"/>
       </div>
       <div className="form-group">
         <button className="bg-valex-orange white">Send <i className="mdi mdi-send"></i></button>

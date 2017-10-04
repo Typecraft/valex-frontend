@@ -41,7 +41,7 @@ export class Dashboard extends React.Component {
         <div className="dashboard__search bg-valex-light-purple">
           <div className="valex-form-control form-colors-inverse">
             <div className="form-group">
-              <input type="text" placeholder="Browse Valex"/>
+              <input type="text" placeholder="Search"/>
               <span className="submit-inform bg-valex-blue valex-lighter-blue"><i className="mdi mdi-magnify"></i></span>
             </div>
           </div>
@@ -97,9 +97,9 @@ export class Dashboard extends React.Component {
               <Col md={6}>
                 <h2 className="light valex-orange">Other sites</h2>
                 <ul className="resetlist gray">
-                  <li><a className="resetlink" href="typecraft.org">typecraft.org</a></li>
-                  <li><a className="resetlink" href="login.typecraft.org">login.typecraft.org</a></li>
-                  <li><a className="resetlink" href="runyankitara.typecraft.org">runyankitara.typecraft.org</a></li>
+                  <li><a className="resetlink" href="https://typecraft.org">typecraft.org</a></li>
+                  <li><a className="resetlink" href="http://login.typecraft.org">login.typecraft.org</a></li>
+                  <li><a className="resetlink" href="http://runyankitara.typecraft.org">runyankitara.typecraft.org</a></li>
                 </ul>
               </Col>
             </Row>

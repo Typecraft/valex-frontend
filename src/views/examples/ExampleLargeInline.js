@@ -14,11 +14,15 @@ export const ExampleLargeInline = ({
 )
 
 ExampleLargeInline.propTypes = {
-
+  className: PropTypes.string,
+  style: PropTypes.object,
+  example: PropTypes.object
 }
 
 ExampleLargeInline.defaultProps = {
-
+  example: {
+    text: "Loading..."
+  }
 }
 
 export default ExampleLargeInline;

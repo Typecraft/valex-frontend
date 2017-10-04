@@ -16,11 +16,11 @@ export const UserLoggedInDialog = ({open}) => (
 )
 
 UserLoggedInDialog.propTypes = {
-  open: PropTypes.bool
+  open: PropTypes.bool,
 }
 
 UserLoggedInDialog.defaultProps = {
-  ope: false
+  open: false,
 }
 
-export default UserLoggedInDialog;
+export default UserLoggedInDialog

@@ -13,15 +13,19 @@ import api from 'api'
 import pagination from 'state/pagination'
 import meanings from 'state/meanings'
 
-const paginator = pagination('/api/lemmas/', 'lemmas', selectors.getAll)
+const paginator = pagination('/api/lemmas/', 'lemmas', state => state[constants.NAME])
 
 export const initialState = {
+  all: {},
+  ofTheDay: undefined
 }
 
 export const types = {
   LOAD: 'valex/lemmas/load',
   LOAD_NEXT: 'valex/lemmas/load-next',
   LOAD_SUCCESS: 'valex/lemmas/load_success',
+  LOAD_OF_THE_DAY: 'valex/lemmas/load_lemma_of_the_day',
+  LOAD_OF_THE_DAY_SUCCESS: 'valex/lemmas/load_lemma_of_the_day_success',
   LOAD_ERROR: 'valex/lemmas/load_error',
   CREATE: 'valex/lemmas/create',
   CREATE_SUCCESS: 'valex/lemmas/create_success',
@@ -58,6 +62,17 @@ export const actions = {
     return {
       type: types.LOAD_ERROR,
       payload: error
+    }
+  },
+  loadOfTheDay() {
+    return {
+      type: types.LOAD_OF_THE_DAY
+    }
+  },
+  loadOfTheDaySuccess(lemma) {
+    return {
+      type: types.LOAD_OF_THE_DAY_SUCCESS,
+      payload: lemma
     }
   },
   create(lemma) {
@@ -116,22 +131,39 @@ export const actions = {
   }
 }
 
-export function reducer(state = {}, {type, payload}) {
+export function reducer(state = initialState, {type, payload}) {
   switch (type) {
     case types.LOAD_SUCCESS:
-      return addManyByIdToObject(state, payload)
+      return {
+        ...state,
+        all: addManyByIdToObject(state.all, payload)
+      }
+    case types.LOAD_OF_THE_DAY_SUCCESS:
+      return {
+        ...state,
+        ofTheDay: payload
+      }
     case types.CREATE_SUCCESS:
     case types.UPDATE_SUCCESS:
-      return addByIdToObject(state, payload)
+      return {
+        ...state,
+        all: addByIdToObject(state.all, payload)
+      }
     case types.REMOVE_SUCCESS:
-      return removeFromObjectById(state, payload.id)
+      return {
+        ...state,
+        all: removeFromObjectById(state.all, payload.id)
+      }
     case types.LOAD_ERROR:
       // If the load was to a single object, we declare it as null here
       // to signify that the item does not exist to the caller
       if (payload.meta.single) {
         return {
           ...state,
-          [payload.meta.payload]: null
+          all: {
+            ...state.all,
+            [payload.meta.payload]: null
+          }
         }
       }
       return state
@@ -139,7 +171,10 @@ export function reducer(state = {}, {type, payload}) {
       const { results } = payload
       return Object.assign(
         {},
-        addManyByIdToObject(state, results),
+        {
+        ...state,
+        all: addManyByIdToObject(state, results)
+        },
         paginator.reducer(state, {type, payload})
       )
     default:
@@ -148,7 +183,6 @@ export function reducer(state = {}, {type, payload}) {
 }
 
 // SAGAS
-
 function* loadRelated(lemma, depth) {
   try {
     const  _meanings  = lemma.meanings
@@ -179,6 +213,20 @@ function* loadLemma(action){
       const {results} = yield call(api.lemmas.readMultiple, action.payload)
       yield put(actions.loadSuccess(results))
     }
+  } catch (e) {
+    yield put(actions.loadError({
+      detail: JSON.stringify(e.response.data),
+      title: 'Error loading lemma(s)',
+      meta: {...action.meta, payload: action.payload}
+    }))
+  }
+}
+
+function* loadLemmaOfTheDay(action) {
+  try {
+    const lemma = yield call(api.lemmas.readOfTheDay)
+    yield put(actions.loadSuccess([lemma]))
+    yield put(actions.loadOfTheDaySuccess(lemma))
   } catch (e) {
     yield put(actions.loadError({
       detail: JSON.stringify(e.response.data),
@@ -233,6 +281,7 @@ function* removeLemma(action){
 export function* saga() {
   yield all([
     takeEvery(types.LOAD, loadLemma),
+    takeEvery(types.LOAD_OF_THE_DAY, loadLemmaOfTheDay),
     takeEvery(types.CREATE, createLemma),
     takeEvery(types.UPDATE, updateLemma),
     takeEvery(types.REMOVE, removeLemma),

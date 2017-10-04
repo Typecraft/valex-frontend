@@ -10,6 +10,9 @@ export default {
     return axios.get(`/api/lemmas/${configureSearchParams(config)}`)
       .then(data => data.data)
   },
+  readOfTheDay() {
+    return axios.get('/api/lemma-of-the-day/').then(data => data.data)
+  },
   update(object, method="PATCH") {
     if (method === "PATCH") {
       return axios.patch(`/api/lemmas/${object.id}/`, object)

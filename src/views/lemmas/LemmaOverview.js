@@ -8,6 +8,7 @@ import { Grid } from 'react-flexbox-grid'
 import { Link } from 'react-router-dom'
 
 import lemmas from 'state/lemmas'
+import { DEFAULT_PAGE_SIZE } from 'util/pagination'
 
 import FullPageLoader from 'views/generic/loaders/FullPageLoader'
 import Paginator from 'views/pagination/Paginator'
@@ -58,9 +59,9 @@ export class LemmaOverview extends React.Component {
               currentPage={page}
               next={next}
               count={this.props.count}
-              pageSize={4}
+              pageSize={DEFAULT_PAGE_SIZE}
               onChangePage={this.handleChangePage}>
-            <table className="lemmaoverview__table">
+            <table className="lemmaoverview__table mb-20">
               <thead>
                 <th className="bold">Lemma</th>
               </thead>

@@ -8,6 +8,7 @@ import { Grid } from 'react-flexbox-grid'
 import { Link } from 'react-router-dom'
 
 import meanings from 'state/meanings'
+import { DEFAULT_PAGE_SIZE } from 'util/pagination'
 
 import FullPageLoader from 'views/generic/loaders/FullPageLoader'
 import Paginator from 'views/pagination/Paginator'
@@ -58,7 +59,7 @@ export class MeaningOverview extends React.Component {
               currentPage={page}
               next={next}
               count={this.props.count}
-              pageSize={4}
+              pageSize={DEFAULT_PAGE_SIZE}
               onChangePage={this.handleChangePage}>
             <table className="meaningoverview__table">
               <thead>

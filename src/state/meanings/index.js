@@ -150,10 +150,16 @@ export function reducer(state = {}, {type, payload}) {
 // SAGAS
 function* loadRelated(meaning, depth) {
   try {
-    const  _meaningValences  = meaning.valences
+    const  _meaningValences = meaning.valences
     yield all(
       (_meaningValences || [])
       .map((meaningId) => put(meaningvalences.actions.load(meaningId, {
+        loadRelated: depth-1
+      })))
+    )
+    const relatedMeanings = meaning.relatedMeanings || []
+    yield all(
+      relatedMeanings.map(meaningId => put(actions.load(meaningId, {
         loadRelated: depth-1
       })))
     )

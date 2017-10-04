@@ -11,6 +11,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid'
 
 import StaffOnly from 'views/login/StaffOnly'
 import MeaningValenceInline from 'views/meaningvalences/MeaningValenceInline'
+import MeaningLargeInline from 'views/meanings/MeaningLargeInline'
 
 import './MeaningDetail.css'
 
@@ -30,8 +31,10 @@ export class MeaningDetail extends React.Component {
   render = () => {
     const {
       meaning,
-      meaningValences
+      meaningValences,
+      relatedMeanings,
     }= this.props
+    console.log(relatedMeanings);
 
     // Loading
     if (this.props.meaning === undefined) {
@@ -99,11 +102,31 @@ export class MeaningDetail extends React.Component {
                       {Object.values(meaningValences)
                         .filter(x => x)
                         .map(meaningValence => (
-                        <MeaningValenceInline
-                            className="mt-10"
-                            key={meaningValence.id}
-                            meaningValence={meaningValence}
-                            meaning={meaning} />
+                          <MeaningValenceInline
+                              className="mt-10"
+                              key={meaningValence.id}
+                              meaningValence={meaningValence}
+                              meaning={meaning} />
+                      ))}
+                    </div>
+                  )
+                }
+              </Col>
+            </Row>
+            <Row className="mt-20">
+              <h3 className="light">Related meanings</h3>
+              <Col xs={12}>
+                {!relatedMeanings || relatedMeanings.length === 0 ?
+                  (<div>This meaning has not related meanings</div>) :
+                  (
+                    <div>
+                      {relatedMeanings
+                        .filter(x => x)
+                        .map(meaning => (
+                          <MeaningLargeInline
+                              key={meaning.id}
+                              meaning={meaning}
+                              className="mt-10" />
                       ))}
                     </div>
                   )
@@ -121,7 +144,8 @@ function mapStateToProps(state, ownProps) {
   const { meaningId } = ownProps.match.params
   return {
     meaning: meanings.selectors.getDetail(state, ownProps),
-    meaningValences: rootSelectors.getMeaningValences(state, meaningId)
+    meaningValences: rootSelectors.getMeaningValences(state, meaningId),
+    relatedMeanings: meanings.selectors.getDetailRelatedMeanings(state, ownProps),
   }
 }
 

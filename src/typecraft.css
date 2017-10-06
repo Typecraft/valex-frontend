@@ -3124,70 +3124,138 @@ button, .btn {
 /* Coolors Exported Palette - coolors.co/48639c-4c4c9d-712f79-976391-f7996e */
 /* Valex */
 /* Login */
-.valex-form-control .form-group {
+.valex-form-control .form-group,
+.login-form-control .form-group,
+.plain-form-control .form-group {
   position: relative;
   margin-bottom: 0.5em; }
 
-.valex-form-control.form-flex .form-group {
+.valex-form-control.form-flex .form-group,
+.login-form-control.form-flex .form-group,
+.plain-form-control.form-flex .form-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
 
-.valex-form-control input {
+.valex-form-control input,
+.login-form-control input,
+.plain-form-control input {
   outline: none;
-  border: 1px solid #4c4c9d;
   padding: 0.5em 1em 0.5em 0.75em;
   border-radius: 4px;
   width: 250px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-.valex-form-control .form-icon + input {
+.valex-form-control .form-icon + input,
+.login-form-control .form-icon + input,
+.plain-form-control .form-icon + input {
   padding-left: 1.95em; }
 
-.valex-form-control label {
+.valex-form-control label,
+.login-form-control label,
+.plain-form-control label {
   display: block;
-  wrap: wrap;
-  color: #48639c; }
+  wrap: wrap; }
 
-.valex-form-control .form-icon {
+.valex-form-control .form-icon,
+.login-form-control .form-icon,
+.plain-form-control .form-icon {
   position: absolute;
-  left: 0.4em;
-  color: #48639c; }
+  left: 0.4em; }
 
-.valex-form-control .form-icon > * {
+.valex-form-control .form-icon > *,
+.login-form-control .form-icon > *,
+.plain-form-control .form-icon > * {
   position: absolute;
   top: 4px; }
 
-.valex-form-control.form-inline {
+.valex-form-control.form-inline,
+.login-form-control.form-inline,
+.plain-form-control.form-inline {
   vertical-align: top; }
 
 .valex-form-control.form-inline label,
-.valex-form-control.form-inline input {
+.valex-form-control.form-inline input,
+.login-form-control.form-inline label,
+.login-form-control.form-inline input,
+.plain-form-control.form-inline label,
+.plain-form-control.form-inline input {
   display: inline-block;
   vertical-align: top; }
 
-.valex-form-control.form-inline label {
+.valex-form-control.form-inline label,
+.login-form-control.form-inline label,
+.plain-form-control.form-inline label {
   display: inline-block;
   width: 120px; }
 
-.valex-form-control.form-inline label + .form-icon {
+.valex-form-control.form-inline label + .form-icon,
+.login-form-control.form-inline label + .form-icon,
+.plain-form-control.form-inline label + .form-icon {
   left: calc(120px + 0.7em); }
 
-.valex-form-control button {
-  background-color: #4c4c9d;
+.valex-form-control button,
+.login-form-control button,
+.plain-form-control button {
   display: inline-block;
   width: 250px;
   padding: 0.5em 1em;
   border-radius: 4px;
   border: none;
-  color: #cecee7;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   cursor: pointer; }
 
-.valex-form-control button.block {
+.valex-form-control button.block,
+.login-form-control button.block,
+.plain-form-control button.block {
   width: 100%; }
+
+.valex-form-control .form-right-button,
+.login-form-control .form-right-button,
+.plain-form-control .form-right-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  cursor: pointer;
+  padding: 0 0.5em;
+  border-radius: 0 4px 4px 0; }
+
+.valex-form-control .form-right-button > *,
+.login-form-control .form-right-button > *,
+.plain-form-control .form-right-button > * {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.plain-form-control input {
+  border: 1px solid gray; }
+
+.valex-form-control input {
+  border: 1px solid #4c4c9d; }
+
+.valex-form-control label {
+  color: #48639c; }
+
+.valex-form-control .form-icon {
+  color: #48639c; }
+
+.valex-form-control .form-right-button {
+  background-color: #4c4c9d;
+  color: #cecee7; }
+
+.valex-form-control button {
+  background-color: #4c4c9d;
+  color: #cecee7; }
+
+.valex-form-control.form-colors-inverse input {
+  border: 1px solid #cecee7; }
 
 .valex-form-control.form-colors-inverse label {
   color: #8499c6; }
@@ -3196,75 +3264,64 @@ button, .btn {
   background-color: #617cb6;
   color: #edf0f6; }
 
-.login-form-control .form-group {
-  position: relative;
-  margin-bottom: 0.5em; }
+.valex-form-control.form-colors-inverse .form-right-button {
+  background-color: #617cb6;
+  color: #cad3e6; }
 
-.login-form-control.form-flex .form-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
+.valex-form-control.form-orange input {
+  border: 1px solid #f7996e; }
+
+.valex-form-control.form-orange label {
+  color: #f7996e; }
+
+.valex-form-control.form-orange .form-icon {
+  color: #f7996e; }
+
+.valex-form-control.form-orange .form-right-button {
+  background-color: #f7996e;
+  color: white; }
+
+.valex-form-control.form-orange button {
+  background-color: #f7996e;
+  color: white; }
+
+.valex-form-control.form-orange.form-colors-inverse input {
+  border: 1px solid #fcddcf; }
+
+.valex-form-control.form-orange.form-colors-inverse label {
+  color: #f7996e; }
+
+.valex-form-control.form-orange.form-colors-inverse button {
+  background-color: #f7996e;
+  color: white; }
+
+.valex-form-control.form-orange.form-colors-inverse .form-right-button {
+  background-color: #f7996e;
+  color: white; }
 
 .login-form-control input {
-  outline: none;
-  border: 1px solid #233363;
-  padding: 0.5em 1em 0.5em 0.75em;
-  border-radius: 4px;
-  width: 250px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+  border: 1px solid #233363; }
 
-.login-form-control .form-icon + input {
-  padding-left: 1.95em; }
-
-.login-form-control label {
-  display: block;
-  wrap: wrap;
-  color: #3e5aae; }
-
+.login-form-control label,
 .login-form-control .form-icon {
-  position: absolute;
-  left: 0.4em;
   color: #3e5aae; }
-
-.login-form-control .form-icon > * {
-  position: absolute;
-  top: 4px; }
-
-.login-form-control.form-inline {
-  vertical-align: top; }
-
-.login-form-control.form-inline label,
-.login-form-control.form-inline input {
-  display: inline-block;
-  vertical-align: top; }
-
-.login-form-control.form-inline label {
-  display: inline-block;
-  width: 120px; }
-
-.login-form-control.form-inline label + .form-icon {
-  left: calc(120px + 0.7em); }
 
 .login-form-control button {
   background-color: #233363;
-  display: inline-block;
-  width: 250px;
-  padding: 0.5em 1em;
-  border-radius: 4px;
-  border: none;
-  color: #8094d2;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  cursor: pointer; }
+  color: #a6b4df; }
 
-.login-form-control button.block {
-  width: 100%; }
+.login-form-control .form-right-button {
+  background-color: #233363;
+  color: #a6b4df; }
 
 .login-form-control.form-colors-inverse label {
   color: #5a75c5; }
 
 .login-form-control.form-colors-inverse button {
+  background-color: #3e5aae;
+  color: #cbd4ed; }
+
+.login-form-control.form-colors-inverse .form-right-button {
   background-color: #3e5aae;
   color: #cbd4ed; }
 
@@ -3277,6 +3334,10 @@ button, .btn {
 .login-form-control.form-brown .form-icon {
   color: #8c8157; }
 
+.login-form-control.form-brown .form-right-button {
+  background-color: #4d4730;
+  color: #b9b190; }
+
 .login-form-control.form-brown button {
   background-color: #4d4730;
   color: #b9b190; }
@@ -3285,6 +3346,10 @@ button, .btn {
   color: #a69b70; }
 
 .login-form-control.form-brown.form-colors-inverse button {
+  background-color: #8c8157;
+  color: #e1ddce; }
+
+.login-form-control.form-brown.form-colors-inverse .form-right-button {
   background-color: #8c8157;
   color: #e1ddce; }
 

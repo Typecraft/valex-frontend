@@ -34,7 +34,6 @@ export class MeaningDetail extends React.Component {
       meaningValences,
       relatedMeanings,
     }= this.props
-    console.log(relatedMeanings);
 
     // Loading
     if (this.props.meaning === undefined) {

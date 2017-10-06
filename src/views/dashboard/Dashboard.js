@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import lemmas from 'state/lemmas'
 
@@ -29,6 +30,23 @@ export class Dashboard extends React.Component {
 
   componentDidMount = () => {
     this.props.loadLemmaOfTheDay()
+    window.addEventListener('keyup', this.handleKeyUp)
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('keyup', this.handleKeyUp)
+  }
+
+  handleKeyUp = event => {
+    console.log(event);
+    if (event.key === 'Enter') {
+      this.handleSearch()
+    }
+  }
+
+  handleSearch = () => {
+    const searchValue = this.inputElement.value
+    this.props.history.push(`/app/search?q=${searchValue}`)
   }
 
   render = () => {
@@ -41,8 +59,10 @@ export class Dashboard extends React.Component {
         <div className="dashboard__search bg-valex-light-purple">
           <div className="valex-form-control form-colors-inverse">
             <div className="form-group">
-              <input type="text" placeholder="Search"/>
-              <span className="submit-inform bg-valex-blue valex-lighter-blue"><i className="mdi mdi-magnify"></i></span>
+              <input type="text" placeholder="Search" ref={el => this.inputElement = el}/>
+              <span className="submit-inform bg-valex-blue valex-lighter-blue" onClick={this.handleSearch}>
+                <i className="mdi mdi-magnify"></i>
+              </span>
             </div>
           </div>
         </div>
@@ -122,4 +142,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dashboard))

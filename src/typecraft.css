@@ -13,18 +13,14 @@ body {
   margin: 0;
   padding: 0; }
 
-body {
-  font-family: 'Open Sans', sans-serif; }
-
-h1, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Work Sans', sans-serif;
-  margin: 0; }
-
-.light {
-  font-weight: 300; }
+.thin {
+  font-weight: 100; }
 
 .very-light {
   font-weight: 200; }
+
+.light {
+  font-weight: 300; }
 
 .normal {
   font-weight: 400; }

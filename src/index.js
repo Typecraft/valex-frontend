@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './typecraft.css'
 import './normalize.css'
+import './valex.css'
+import './typecraft.css'
 import 'react-select/dist/react-select.css'
 import App from './views/app/App'
 // import registerServiceWorker from './registerServiceWorker'
@@ -13,7 +14,6 @@ import login from 'state/login'
 
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-
 const store = configureStore()
 
 api.getAndSetApiKey()

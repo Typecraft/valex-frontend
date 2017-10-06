@@ -16,6 +16,8 @@ import DashboardFooterNavigation from 'views/dashboard/DashboardFooterNavigation
 import DashboardContact from 'views/dashboard/DashboardContact'
 
 import './Dashboard.css'
+import background from './assets/background.jpg'
+import searchIcon from './assets/Search.png'
 
 export class Dashboard extends React.Component {
   static propTypes = {
@@ -56,16 +58,22 @@ export class Dashboard extends React.Component {
 
     return (
       <div className="dashboard">
-        <div className="dashboard__search bg-valex-light-purple">
-          <div className="valex-form-control form-colors-inverse">
-            <div className="form-group">
-              <input type="text" placeholder="Search" ref={el => this.inputElement = el}/>
-              <span className="submit-inform bg-valex-blue valex-lighter-blue" onClick={this.handleSearch}>
-                <i className="mdi mdi-magnify"></i>
-              </span>
-            </div>
+        <Grid className="dashboard__search" style={{
+          backgroundImage: `url(${background})`,
+          backgroundSize: 'cover',
+          backgroundPosition: '50% 50%'
+        }}>
+          <div className="form-wrapper">
+            <img className="searchicon" src={searchIcon} alt=""/>
+            <input type="text" placeholder="Look up a word..." ref={el => this.inputElement = el}/>
           </div>
-        </div>
+          <div className="title-wrapper">
+            <h1 className="white">
+              A multilanguage valence lexicon
+            </h1>
+          </div>
+        </Grid>
+        {/*
         <div className="dashboard__info bg-white-2">
           <Grid>
             <Row>
@@ -95,6 +103,7 @@ export class Dashboard extends React.Component {
             </Row>
           </Grid>
         </div>
+        {/*
         <div className="dashboard__footer bg-darker-gray">
           <Grid>
             <Row className="pb-10" style={{borderBottom: "1px solid gray"}}>
@@ -125,6 +134,7 @@ export class Dashboard extends React.Component {
             </Row>
           </Grid>
         </div>
+      */}
       </div>
     )
   }

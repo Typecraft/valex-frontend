@@ -1,14 +1,9 @@
 .loginfull{
   display: flex;
-  height: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
-}
-
-.loginfull__inner{
-  margin-top: -15em;
+  padding-top: 80px;
 }
 
 .loginfull .valex-form-control{
@@ -43,4 +38,22 @@
   border-radius: 0;
   background: #4a4949;
   color: #ccc;
+}
+
+@media only screen and (max-width: 768px) {
+  .loginfull__inner{
+    width: 100%;
+  }
+  .login-form-wrapper{
+    text-align: center;
+  }
+  .login-form-wrapper .form-group{
+    width: 340px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .login-form-wrapper input{
+    width: 100%;
+  }
 }

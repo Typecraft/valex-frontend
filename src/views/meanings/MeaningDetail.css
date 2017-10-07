@@ -1,10 +1,15 @@
 
 .meaningdetail{
-  min-height: 100%;
+}
+
+.meaningdetail hr{
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 
 .meaningdetail__inner{
   position: relative;
+  padding: 0 4em;
 }
 
 .meaningdetail--loading, .meaningdetail--noexists{
@@ -26,4 +31,9 @@
 .meaningdetail__edit:hover{
   background-color: #9f9f9f;
   color: #ccc;
+}
+@media only screen and (max-width: 768px) {
+ .meaningdetail__inner{
+  padding: 0 2em;
+ }
 }

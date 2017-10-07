@@ -5,7 +5,7 @@ import UnderConstruction from './UnderConstruction'
 import './UnderConstructionFull.css'
 
 export const UnderConstructionFull = () => (
-  <div className="underconstructionfull valex-purple">
+  <div className="underconstructionfull dark-gray">
     <UnderConstruction />
   </div>
 )

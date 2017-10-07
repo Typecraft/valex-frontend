@@ -1,14 +1,56 @@
 .dashboard{
+  position: absolute;
+  width: 100%;
+  top: 130px;
+  bottom: 0;
 }
 
 .dashboard__search{
   padding: 4em 0;
   text-align: center;
+  height: 80%;
+  padding-top: 15em;
+  position: relative;
+}
+
+.dashboard__search input{
+  width: 400px;
+  font-size: 16px;
+  padding: 0.55em 0.5em 0.55em 3em;
+  font-family: 'aktiv-grotesk-thin', sans-serif;
+  outline: none;
+  border: none;
+}
+
+.dashboard__search input::placeholder{
+  color: #4a4949;
+}
+
+.dashboard__search .form-wrapper{
+  position: relative;
+}
+
+.dashboard__search .searchicon{
+  position: absolute;
+  top: 9px;
+  margin-left: 1em;
 }
 
 .dashboard__search .valex-form-control{
   display: inline-block;
   font-size: 20px;
+}
+
+.dashboard .title-wrapper{
+  position: absolute;
+  text-align: left;
+  bottom: 4em;
+  left: 6em;
+}
+
+.dashboard .title-wrapper h1{
+  font-size: 36px;
+  font-weight: 200 !important;
 }
 
 .submit-inform{
@@ -41,3 +83,29 @@
   padding-bottom: 2em;
 }
 
+@media only screen and (max-width: 768px) {
+  .dashboard{
+    top: 140px;
+    bottom: 70px;
+  }
+  .dashboard__search{
+    padding-top: 30%;
+    height: 100%;
+  }
+  .dashboard__search input{
+    width: 340px;
+    max-width: 90%;
+  }
+
+  .dashboard .title-wrapper{
+    position: relative;
+    left: 7%;
+    top: 2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .dashboard .title-wrapper h1{
+    font-size: 36px;
+  }
+}

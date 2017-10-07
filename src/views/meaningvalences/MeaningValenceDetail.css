@@ -3,8 +3,14 @@
   min-height: 100%;
 }
 
+.meaningvalencedetail hr{
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
 .meaningvalencedetail__inner{
   position: relative;
+  padding: 0 4em;
 }
 
 .meaningvalencedetail--loading, .meaningvalencedetail--noexists{
@@ -26,4 +32,10 @@
 .meaningvalencedetail__edit:hover{
   background-color: #9f9f9f;
   color: #ccc;
+}
+
+@media only screen and (max-width: 768px) {
+  .meaningvalencedetail__inner{
+    padding: 0 2em;
+  }
 }

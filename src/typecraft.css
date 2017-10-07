@@ -13,18 +13,14 @@ body {
   margin: 0;
   padding: 0; }
 
-body {
-  font-family: 'Open Sans', sans-serif; }
-
-h1, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Work Sans', sans-serif;
-  margin: 0; }
-
-.light {
-  font-weight: 300; }
+.thin {
+  font-weight: 100; }
 
 .very-light {
   font-weight: 200; }
+
+.light {
+  font-weight: 300; }
 
 .normal {
   font-weight: 400; }
@@ -352,6 +348,60 @@ button, .btn {
   text-decoration: inherit !important;
   color: inherit !important;
   cursor: inherit !important; }
+
+.m-0 {
+  margin: 0px; }
+
+.mt-0 {
+  margin-top: 0px; }
+
+.mr-0 {
+  margin-right: 0px; }
+
+.ml-0 {
+  margin-left: 0px; }
+
+.mb-0 {
+  margin-bottom: 0px; }
+
+.mt-neg-0 {
+  margin-top: 0px; }
+
+.mr-neg-0 {
+  margin-right: 0px; }
+
+.ml-neg-0 {
+  margin-left: 0px; }
+
+.mb-neg-0 {
+  margin-bottom: 0px; }
+
+.p-0 {
+  padding: 0px; }
+
+.pt-0 {
+  padding-top: 0px; }
+
+.pr-0 {
+  padding-right: 0px; }
+
+.pl-0 {
+  padding-left: 0px; }
+
+.pb-0 {
+  padding-bottom: 0px; }
+
+.pt-neg-0 {
+  padding-top: 0px; }
+
+.pr-neg-0 {
+  padding-right: 0px; }
+
+.pl-neg-0 {
+  padding-left: 0px; }
+
+.pb-neg-0 {
+  padding-bottom: 0px; }
 
 .m-1 {
   margin: 1px; }

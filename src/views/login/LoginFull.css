@@ -1,14 +1,9 @@
 .loginfull{
   display: flex;
-  height: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
-}
-
-.loginfull__inner{
-  margin-top: -10em;
+  padding-top: 80px;
 }
 
 .loginfull .valex-form-control{
@@ -22,4 +17,43 @@
 
 .loginfull__smiley{
   font-size: 72px;
+}
+
+.login-form-wrapper label{
+  display: block;
+  text-align: left;
+}
+
+.login-form-wrapper input{
+  width: 400px;
+  font-size: 17px;
+  font-family: 'aktiv-grotesk-thin', sans-serif;
+  padding: 0.6em 0.75em;
+  border: none;
+  background: #f2f2f2;
+}
+
+.login-form-wrapper button{
+  height: 42px;
+  border-radius: 0;
+  background: #4a4949;
+  color: #ccc;
+}
+
+@media only screen and (max-width: 768px) {
+  .loginfull__inner{
+    width: 100%;
+  }
+  .login-form-wrapper{
+    text-align: center;
+  }
+  .login-form-wrapper .form-group{
+    width: 340px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .login-form-wrapper input{
+    width: 100%;
+  }
 }

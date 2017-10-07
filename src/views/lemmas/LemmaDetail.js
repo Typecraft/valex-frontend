@@ -50,54 +50,60 @@ export class LemmaDetail extends React.Component {
       )
     } else {
       return (
-        <div className="lemmadetail">
-          <Grid className="lemmadetail__inner">
-            <Row className="mt-40">
+        <Grid className="lemmadetail">
+          <div className="lemmadetail__inner">
+            {/*<Row className="mt-40">
               <h1 className="light darker-gray">{lemma.lemma}</h1>
               <StaffOnly><Link to={`/app/lemmas/${lemma.id}/edit`} className="lemmadetail__edit darker-gray">Edit <i className="mdi mdi-pencil"></i></Link></StaffOnly>
+            </Row>*/}
+            <Row>
+              <h1 className="lemmadetail__header">{lemma.lemma}</h1>
             </Row>
-            <Row className="mt-20">
-              <h3 className="light valex-purple">Basic data</h3>
+            <hr/>
+            <Row>
+              <h3 className="light mt-5">Basic data</h3>
               <Col xs={12}>
-                <table>
+                <table className="thin spaced-table">
                   <tbody>
                     <tr>
-                      <td>Lemma</td>
-                      <td>{lemma.lemma}</td>
+                      <td>Lemma:</td>
+                      <td className="italic">{lemma.lemma}</td>
                     </tr>
                     <tr>
-                      <td>Citation form</td>
-                      <td>{lemma.citationForm || 'This lemma has no registered Citation Form'}</td>
+                      <td>Citation form:</td>
+                      <td className="italic">{lemma.citationForm || 'This lemma has no registered Citation Form'}</td>
                     </tr>
                     <tr>
-                      <td>Language</td>
-                      <td>{lemma.language}</td>
+                      <td>Language:</td>
+                      <td className="italic">{lemma.language}</td>
                     </tr>
                     <tr>
-                      <td>Comments</td>
-                      <td>{lemma.comment || 'This lemma has no comments'}</td>
+                      <td>Comments:</td>
+                      <td className="italic">{lemma.comment || 'This lemma has no comments'}</td>
                     </tr>
                   </tbody>
                 </table>
               </Col>
             </Row>
             <Row className="mt-20">
-              <h3 className="light valex-purple">Meanings</h3>
+              <h3 className="light">Meanings</h3>
               <Col xs={12}>
                 {!lemmaMeanings || Object.keys(lemmaMeanings).length === 0 ?
                   (<div>This lemma has no associated meanings</div>):
                   (
-                    <div>
+                    <ol className="m-0 padded-list">
                     {Object.values(lemmaMeanings).filter(x => x).map(meaning => (
-                      <MeaningLargeInline className="mt-10" key={meaning.id} meaning={meaning} />
+                      <li className="thin italic" key={meaning.id}>
+                        <Link className="resetlink" to={`/app/meanings/${meaning.id}/`}>{meaning.meaning}</Link>
+                      </li>
                     ))}
-                    </div>
+                    </ol>
                   )
                 }
               </Col>
             </Row>
-          </Grid>
-        </div>
+          </div>
+        </Grid>
       )
     }
   }

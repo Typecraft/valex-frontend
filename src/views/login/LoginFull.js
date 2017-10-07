@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import login from 'state/login'
 
@@ -23,6 +24,12 @@ export class LoginFull extends React.Component {
 
   }
 
+  componentWillReceiveProps = (newProps) => {
+    if (newProps.loggedIn) {
+      this.props.history.push('/app')
+    }
+  }
+
   handleChangeUsername = event => {
     this.setState({
       ...this.state,
@@ -41,25 +48,32 @@ export class LoginFull extends React.Component {
     this.props.attemptLogin(this.state.username, this.state.password)
   }
 
+  handleKeyup = event => {
+    if (event.key === 'Enter') {
+      this.handleSubmit()
+    }
+  }
+
+  componentDidMount = () => {
+    window.addEventListener('keyup', this.handleKeyup)
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('keyup', this.handleKeyup)
+  }
+
   render = () =>
     <div className="loginfull">
-      {!this.props.loggedIn ? (
+      {!this.props.loggedIn ?   (
         <div className="loginfull__inner">
-          <h2 className="normal mb-15">Please enter your credentials</h2>
-          <div className="valex-form-control">
+          <div className="login-form-wrapper">
             <div className="form-group mb-20">
-              <label>Username</label>
-              <span className="form-icon">
-                <i className="mdi mdi-account"></i>
-              </span>
-              <input type="text" placeholder="Username" onChange={this.handleChangeUsername}/>
+              <label className="thin mb-5">Username</label>
+              <input type="text" onChange={this.handleChangeUsername}/>
             </div>
-            <div className="form-group mb-20">
-              <label>Password</label>
-              <span className="form-icon">
-                <i className="mdi mdi-lock"></i>
-              </span>
-              <input type="password" placeholder="Password" onChange={this.handleChangePassword}/>
+            <div className="form-group mb-30">
+              <label className="thin mb-5">Password</label>
+              <input type="password" onChange={this.handleChangePassword}/>
             </div>
             <div className="form-group">
               <button className="block" onClick={this.handleSubmit}>Submit</button>
@@ -96,4 +110,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginFull)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginFull))

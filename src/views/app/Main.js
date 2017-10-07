@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Switch, Route, Redirect } from 'react-router-dom'
 
+import LoginFull from 'views/login/LoginFull'
+
 import LemmaOverview from 'views/lemmas/LemmaOverview'
 import LemmaDetail from 'views/lemmas/LemmaDetail'
 import LemmaDetailEdit from 'views/lemmas/LemmaDetailEdit'
@@ -35,6 +37,7 @@ export class Main extends React.Component {
       <Switch>
         <Route exact path="/app" component={Dashboard} />
         <Redirect exact from="/" to="/app" />
+        <Route path="/app/login" component={LoginFull} />
         <Route path="/app/lemmas/create" component={LemmaCreate} />
         <Route exact path="/app/lemmas/:lemmaId" component={LemmaDetail}/>
         <Route path="/app/lemmas/:lemmaId/edit" component={LemmaDetailEdit}/>

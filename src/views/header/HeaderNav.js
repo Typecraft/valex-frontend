@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import chevronGray from 'assets/chevron-black.svg'
+import chevronGray from 'assets/chevron-gray.svg'
 
 export const HeaderNav = () => (
-  <div className="headernav">
+  <div className="headernav header-gray">
     <div className="header__btn">
       <Link className="resetlink" to="/app/lemmas">
         Lexicon

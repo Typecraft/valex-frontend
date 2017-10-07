@@ -7,14 +7,6 @@ import lemmas from 'state/lemmas'
 
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
-import UnderConstruction from 'views/generic/UnderConstruction'
-import LemmaCard from 'views/lemmas/LemmaCard'
-import SimpleForm from 'views/generic/forms/SimpleForm'
-
-import DashboardSubscribe from 'views/dashboard/DashboardSubscribe'
-import DashboardFooterNavigation from 'views/dashboard/DashboardFooterNavigation'
-import DashboardContact from 'views/dashboard/DashboardContact'
-
 import './Dashboard.css'
 import background from './assets/background.jpg'
 import searchIcon from './assets/Search.png'
@@ -52,10 +44,6 @@ export class Dashboard extends React.Component {
   }
 
   render = () => {
-    const {
-      lemmaOfTheDay
-    } = this.props
-
     return (
       <div className="dashboard">
         <Grid className="dashboard__search" style={{

@@ -1,4 +1,6 @@
 .dashboard{
+  position: absolute;
+  width: 100%;
   height: 100%;
 }
 
@@ -80,3 +82,24 @@
   padding-bottom: 2em;
 }
 
+@media only screen and (max-width: 768px) {
+  .dashboard__search{
+    padding-top: 30%;
+  }
+  .dashboard__search input{
+    width: 340px;
+    max-width: 90%;
+  }
+
+  .dashboard .title-wrapper{
+    position: relative;
+    left: 7%;
+    top: 2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .dashboard .title-wrapper h1{
+    font-size: 36px;
+  }
+}

@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
 import StaffOnly from 'views/login/StaffOnly'
-import MeaningValenceInline from 'views/meaningvalences/MeaningValenceInline'
+import MeaningValenceItem from 'views/meaningvalences/MeaningValenceItem'
 import MeaningLargeInline from 'views/meanings/MeaningLargeInline'
 
 import './MeaningDetail.css'
@@ -51,89 +51,71 @@ export class MeaningDetail extends React.Component {
       )
     } else {
       return (
-        <div className="meaningdetail">
-          <Grid className="meaningdetail__inner">
-            <Row className="mt-40 mb-20">
-              <Col xs={10}>
-                <Link
-                    to={`/app/lemmas/${meaning.lemma}/`}
-                    className="btn btn-medium bg-valex-purple valex-highlight-purple">
-                  <i className="mdi mdi-arrow-top-left"></i> Up to lemma
-                </Link>
-              </Col>
-              <Col xs={2}>
-                <StaffOnly style={{float: "right"}}>
-                  <Link
-                      to={`/app/meanings/${meaning.id}/edit`}
-                      className="meaningdetail__edit darker-gray">
-                      Edit <i className="mdi mdi-pencil"></i>
-                  </Link>
-                </StaffOnly>
-              </Col>
+        <Grid className="meaningdetail">
+          <div className="meaningdetail__inner">
+            <Row>
+              <h1 className="mb-0">{meaning.meaning}</h1>
             </Row>
-            <Row className="mt-30">
-              <h1 className="light darker-gray">{meaning.meaning}</h1>
-            </Row>
-            <Row className="mt-20">
-              <h3 className="light">Basic data</h3>
+            <hr/>
+            <Row>
+              <h3 className="light mt-5">Basic data</h3>
               <Col xs={12}>
-                <table>
+                <table className="thin spaced-table">
                   <tbody>
                     <tr>
                       <td>Meaning</td>
-                      <td>{meaning.meaning}</td>
+                      <td className="italic">{meaning.meaning}</td>
                     </tr>
                     <tr>
                       <td>Comments</td>
-                      <td>{meaning.comment || 'This meaning has no comments'}</td>
+                      <td className="italic">{meaning.comment || 'This meaning has no comments'}</td>
                     </tr>
                   </tbody>
                 </table>
               </Col>
             </Row>
-            <Row className="mt-20">
+            <Row>
               <h3 className="light">Valences</h3>
               <Col xs={12}>
                 {!meaningValences || Object.keys(meaningValences).length === 0 ?
                   (<div>This meaning has no associated valences</div>):
                   (
-                    <div>
+                    <ol className="m-0 padded-list">
                       {Object.values(meaningValences)
                         .filter(x => x)
                         .map(meaningValence => (
-                          <MeaningValenceInline
-                              className="mt-10"
+                          <MeaningValenceItem
+                              className="italic thin"
                               key={meaningValence.id}
                               meaningValence={meaningValence}
                               meaning={meaning} />
                       ))}
-                    </div>
+                    </ol>
                   )
                 }
               </Col>
             </Row>
-            <Row className="mt-20">
+            <Row>
               <h3 className="light">Related meanings</h3>
               <Col xs={12}>
                 {!relatedMeanings || relatedMeanings.length === 0 ?
                   (<div>This meaning has no related meanings</div>) :
                   (
-                    <div>
+                    <ol className="m-0 padded-list">
                       {relatedMeanings
                         .filter(x => x)
                         .map(meaning => (
-                          <MeaningLargeInline
-                              key={meaning.id}
-                              meaning={meaning}
-                              className="mt-10" />
-                      ))}
-                    </div>
+                          <li className="thin italic" key={meaning.id}>
+                            <Link className="resetlink" to={`/app/meanings/${meaning.id}/`}>{meaning.meaning}</Link>
+                          </li>
+                        ))}
+                    </ol>
                   )
                 }
               </Col>
             </Row>
-          </Grid>
-        </div>
+          </div>
+        </Grid>
       )
     }
   }

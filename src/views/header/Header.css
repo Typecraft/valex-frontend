@@ -1,30 +1,30 @@
 .header__wrapper{
   position: fixed;
-  width: 100%;
-  height: 60px;
-  margin-top: 50px;
-  margin-bottom: 30px;
   z-index: 1;
+  background: white;
+  left: 0;
+  width: 100%;
 }
 
 .header{
   height: 60px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  box-sizing: content-box !important;
+}
+
+.header .row{
+  align-items: center;
 }
 
 .header__left, .header__right, .header__middle{
-  vertical-align: top;
-  display: inline-block;
   height: 100%;
-}
-
-.header__middle{
-  display: inline-block;
-  margin: 0 auto;
 }
 
 .headernav{
   height: 100%;
   margin-left: 5em;
+  height: 60px;
 }
 
 .header__btn:hover .headernav__sublist{
@@ -50,8 +50,8 @@
 
 .header__right{
   height: 100%;
-  float: right;
-  margin-right: 0.5em;
+  text-align: right;
+  padding-right: 2em;
 }
 
 .header__right .header__btn{
@@ -70,3 +70,67 @@
   cursor: pointer;
 }
 
+@media only screen and (max-width: 768px) {
+  .header{
+    padding-top: 0;
+  }
+  .header__left{
+    text-align: center;
+  }
+  .header__middle{
+    position: fixed;
+    height: auto;
+    bottom: 0;
+    color: black;
+    z-index: 1;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    background: white;
+  }
+  .header__middle .headernav{
+    margin: 0;
+    height: 60px;
+    text-align: center;
+  }
+  .header__middle .headernav .headernav__sublist{
+    display: none;
+  }
+  .headernav .header__btn{
+    margin: 0 !important;
+    position: relative;
+    padding: 0 2em;
+  }
+  .headernav .header__btn:not(:last-child):after{
+    content: " ";
+    background-color: #888;
+    height: 30px;
+    width: 1px;
+    top: 1em;
+    position: absolute;
+    right: 0;
+  }
+  .headernav .chevron__down{
+    display: none !important;
+  }
+  .header__right{
+    text-align: center;
+    font-size: 18px;
+    padding: 0;
+    background: white;
+    padding-bottom: 1em;
+  }
+  .header__right a{
+    padding-right: 2.5em !important;
+    padding-left: 2.5em !important;
+  }
+  .header__right .header__btn:not(:last-child):after{
+    content: " ";
+    background-color: #888;
+    height: 30px;
+    width: 1px;
+    top: -0.2em;
+    position: absolute;
+    right: -0em;
+  }
+}

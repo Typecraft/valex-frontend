@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import users from 'state/users'
 
@@ -45,35 +46,44 @@ export class Header extends React.Component {
     })
   }
 
-  render = () =>
-    <div className="header__wrapper">
-      <Grid className="header thin">
-        <div className="header__left">
-          <div className="header__btn">
-            <Link className="resetlink" to="/app/">
-              <h1 className="thin">Valex</h1>
-            </Link>
-          </div>
-        </div>
-        <div className="header__middle">
-          <HeaderNav />
-        </div>
-        <div className="header__right">
-          {/*<div className="header__btn mr-20">
-            <i className="mdi mdi-bell"></i>
-            Notifications
-            <a className="ml-5 badge bg-valex-purple valex-lighter-purple">0</a>
-          </div>*/}
-          {this.props.currentUser === undefined ?
-            [
-              <Link className="resetlink header__btn" to="/app/login">Sign in</Link>,
-              <Link className="resetlink header__btn" to="/app/register">Register</Link>
-            ] : <span>{this.props.currentUser.name}</span>
+  render = () => {
+    return (
+      <div className="header__wrapper">
+        <Grid className="header thin">
+          <Row>
+            <Col xs={12} md={2} className="header__left">
+              <div className="header__btn">
+                <Link className="resetlink" to="/app/">
+                  <h1 className="thin">Valex</h1>
+                </Link>
+              </div>
+            </Col>
+            <Col xs={12} md={6} className="header__middle">
+              <HeaderNav />
+            </Col>
+            <Col xs={12} md={4} className="header__right header-gray">
+              {/*<div className="header__btn mr-20">
+                <i className="mdi mdi-bell"></i>
+                Notifications
+                <a className="ml-5 badge bg-valex-purple valex-lighter-purple">0</a>
+              </div>*/}
+              {this.props.currentUser === undefined ?
+                [
+                  <Link className="resetlink header__btn" to="/app/login">Sign in</Link>,
+                  <a
+                      className="resetlink header__btn"
+                      href={`http://login.typecraft.org/signup?next=${window.location.origin}`}>
+                    Register
+                  </a>
+                ] : <span className="header__label">{this.props.currentUser.first_name}</span>
 
-          }
-        </div>
-      </Grid>
-    </div>
+              }
+            </Col>
+          </Row>
+        </Grid>
+      </div>
+    )
+  }
 }
 
 function mapStateToProps(state) {
@@ -88,4 +98,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))

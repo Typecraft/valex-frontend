@@ -8,7 +8,7 @@
 }
 
 .loginfull__inner{
-  margin-top: -10em;
+  margin-top: -15em;
 }
 
 .loginfull .valex-form-control{
@@ -22,4 +22,25 @@
 
 .loginfull__smiley{
   font-size: 72px;
+}
+
+.login-form-wrapper label{
+  display: block;
+  text-align: left;
+}
+
+.login-form-wrapper input{
+  width: 400px;
+  font-size: 17px;
+  font-family: 'aktiv-grotesk-thin', sans-serif;
+  padding: 0.6em 0.75em;
+  border: none;
+  background: #f2f2f2;
+}
+
+.login-form-wrapper button{
+  height: 42px;
+  border-radius: 0;
+  background: #4a4949;
+  color: #ccc;
 }

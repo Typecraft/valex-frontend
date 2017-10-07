@@ -58,42 +58,28 @@ export class MeaningValenceDetail extends React.Component {
       )
     } else {
       return (
-        <div className="meaningvalencedetail">
-          <Grid className="meaningvalencedetail__inner">
-            <Row className="mt-40">
-              <Col xs={10}>
-                <Link
-                    to={`/app/meanings/${meaning.id}/`}
-                    className="btn btn-medium bg-valex-purple valex-highlight-purple">
-                  <i className="mdi mdi-arrow-top-left"></i> Up to meaning
-                </Link>
-              </Col>
-              <Col xs={2}>
-                <StaffOnly>
-                  <Link
-                      to={`/app/meaning-valences/${meaningValence.id}/edit`}
-                      className="meaningvalencedetail__edit darker-gray">
-                    Edit <i className="mdi mdi-pencil"></i>
-                  </Link>
-                </StaffOnly>
-              </Col>
+        <Grid className="meaningvalencedetail">
+          <div className="meaningvalencedetail__inner">
+            <Row>
+              <h1 className="mb-0">{meaning.meaning}</h1>
             </Row>
-            <Row className="mt-20">
-              <h3 className="light">Basic data</h3>
+            <hr/>
+            <Row>
+              <h3 className="light mt-5">Basic data</h3>
               <Col xs={12}>
                 <table>
-                  <tbody>
+                  <tbody className="spaced-table thin">
                     <tr>
                       <td>Meaning</td>
-                      <td>{meaning.meaning}</td>
+                      <td className="italic">{meaning.meaning}</td>
                     </tr>
                     <tr>
                       <td>Valence</td>
-                      <td>{valenceFrame.name}</td>
+                      <td className="italic">{valenceFrame.name}</td>
                     </tr>
                     <tr>
                       <td>Comments</td>
-                      <td>{meaning.comment || 'This meaning has no comments'}</td>
+                      <td className="italic">{meaning.comment || 'This meaning-valence pair has no comments'}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -105,22 +91,21 @@ export class MeaningValenceDetail extends React.Component {
                 {!examples || Object.keys(examples).filter(x=>x).length === 0 ?
                   (<div>This meaning has no associated examples</div>):
                   (
-                    <div>
+                    <ol className="m-0 padded-list">
                       {Object.values(examples)
                         .filter(x => x)
                         .map(example => (
-                        <ExampleLargeInline
-                            className="mt-10"
-                            key={meaningValence.id}
-                            example={example} />
+                          <li className="thin italic">
+                            {example.text}
+                          </li>
                       ))}
-                    </div>
+                    </ol>
                   )
                 }
               </Col>
             </Row>
-          </Grid>
-        </div>
+          </div>
+        </Grid>
       )
     }
   }

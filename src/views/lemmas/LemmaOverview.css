@@ -17,13 +17,13 @@
 }
 
 .lemmaoverview__table thead th{
-  font-weight: 600;
+  font-weight: 400;
   padding: 1em 1em;
   text-align: left;
 }
 
 .lemmaoverview__lemmaentry:nth-of-type(odd) {
-  background-color: #eee;
+  background-color: #f8f8f8;
 }
 
 .lemmaoverview__lemmaentry > a{

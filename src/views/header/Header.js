@@ -80,7 +80,7 @@ export class Header extends React.Component {
                       href={`http://login.typecraft.org/signup?next=${window.location.origin}`}>
                     Register
                   </a>
-                ] : <span className="loggedin header__label">{this.props.currentUser.first_name}</span>
+                ] : <a href="/logout" className="resetlink loggedin header__label">Logout</a>
 
               }
             </Col>

@@ -48,13 +48,6 @@ export class LemmaOverview extends React.Component {
     return (
       <div className="lemmaoverview">
         <Grid className="mt-40 lemmaoverview__grid">
-          <StaffOnly className="lemmaoverview__create valex-highlight-purple">
-            <Link
-                to="/app/lemmas/create"
-                className="resetlink btn bg-valex-purple valex-highlight-purple">
-              <i className="mdi mdi-plus-circle"></i> Add new
-            </Link>
-          </StaffOnly>
           <Paginator
               currentPage={page}
               next={next}
@@ -63,11 +56,11 @@ export class LemmaOverview extends React.Component {
               onChangePage={this.handleChangePage}>
             <table className="lemmaoverview__table mb-20">
               <thead>
-                <th className="bold">Lemma</th>
+                <th className="normal">Lemma</th>
               </thead>
               <tbody>
                 {Object.values(this.props.lemmas).map(lemma => (
-                  <tr key={lemma.id} className="lemmaoverview__lemmaentry">
+                  <tr key={lemma.id} className="lemmaoverview__lemmaentry thin">
                     <Link className="resetlink" to={`/app/lemmas/${lemma.id}`}>
                       <td>{lemma.lemma}</td>
                     </Link>

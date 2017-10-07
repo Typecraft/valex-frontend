@@ -133,8 +133,4 @@
     position: absolute;
     right: -0em;
   }
-
-  .header__right.loggedin{
-    display: none;
-  }
 }

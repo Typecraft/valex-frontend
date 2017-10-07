@@ -12,9 +12,9 @@
 .paginator__navitem{
   display: inline-block;
   width: 25px;
-  border-left: 1px solid #4c4c9d;
-  border-top: 1px solid #4c4c9d;
-  border-bottom: 1px solid #4c4c9d;
+  border-left: 1px solid #4a4949;
+  border-top: 1px solid #4a4949;
+  border-bottom: 1px solid #4a4949;
   cursor: pointer;
 }
 
@@ -26,10 +26,10 @@
 .paginator__navitem:last-of-type{
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  border-right: 1px solid #4c4c9d;
+  border-right: 1px solid #4a4949;
 }
 
 .paginator__navitem.active{
-  background-color: #4c4c9d;
+  background-color: #4a4949;
   color: #e9dde7;
 }

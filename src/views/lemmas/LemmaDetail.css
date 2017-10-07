@@ -42,7 +42,7 @@
   color: #ccc;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
  .lemmadetail__inner{
   padding: 0 2em;
  }

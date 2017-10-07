@@ -4,8 +4,9 @@
   position: relative;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .main{
+    padding-top: 80px;
     padding-bottom: 70px;
   }
 }

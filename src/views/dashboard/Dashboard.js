@@ -8,7 +8,7 @@ import lemmas from 'state/lemmas'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
 import './Dashboard.css'
-import background from './assets/background.jpg'
+import background from './assets/background_hdpi.jpg'
 import searchIcon from './assets/Search.png'
 
 export class Dashboard extends React.Component {

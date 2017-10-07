@@ -47,21 +47,26 @@ export class Header extends React.Component {
   }
 
   render = () => {
+    const {
+      currentUser
+    } = this.props
+
+    const loggedIn = currentUser !== undefined
     return (
       <div className="header__wrapper">
         <Grid className="header thin">
           <Row>
-            <Col xs={12} md={2} className="header__left">
+            <Col xs={12} lg={2} className="header__left">
               <div className="header__btn">
                 <Link className="resetlink" to="/app/">
                   <h1 className="thin">Valex</h1>
                 </Link>
               </div>
             </Col>
-            <Col xs={12} md={6} className="header__middle">
+            <Col xs={12} lg={6} className="header__middle">
               <HeaderNav />
             </Col>
-            <Col xs={12} md={4} className="header__right header-gray">
+            <Col xs={12} lg={4} className={`header__right header-gray ${loggedIn ? 'loggedin' :  ''}`}>
               {/*<div className="header__btn mr-20">
                 <i className="mdi mdi-bell"></i>
                 Notifications
@@ -75,7 +80,7 @@ export class Header extends React.Component {
                       href={`http://login.typecraft.org/signup?next=${window.location.origin}`}>
                     Register
                   </a>
-                ] : <span className="header__label">{this.props.currentUser.first_name}</span>
+                ] : <span className="loggedin header__label">{this.props.currentUser.first_name}</span>
 
               }
             </Col>

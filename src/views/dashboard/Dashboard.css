@@ -86,7 +86,7 @@
 @media only screen and (max-width: 1024px) {
   .dashboard{
     top: 80px;
-    bottom: 70px;
+    bottom: 60px;
   }
   .dashboard__search{
     height: 100%;

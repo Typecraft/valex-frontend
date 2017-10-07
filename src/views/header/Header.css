@@ -118,6 +118,7 @@
     font-size: 18px;
     padding: 0;
     background: white;
+    padding-top: 0.2em;
     padding-bottom: 1em;
   }
   .header__right a{

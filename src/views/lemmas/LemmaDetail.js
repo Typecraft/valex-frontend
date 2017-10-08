@@ -10,6 +10,7 @@ import { ThreeBounce } from 'better-react-spinkit'
 import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
+import { iso639ToLang } from 'util/language'
 
 import './LemmaDetail.css'
 
@@ -73,7 +74,7 @@ export class LemmaDetail extends React.Component {
                     </tr>
                     <tr>
                       <td>Language:</td>
-                      <td className="italic">{lemma.language}</td>
+                      <td className="italic">{iso639ToLang(lemma.language)}</td>
                     </tr>
                     <tr>
                       <td>Comments:</td>

@@ -6,6 +6,6 @@ export function iso639ToLang(lang) {
     case 'deu':
       return 'German'
     default:
-      return 'Unspecified language'
+      return lang
   }
 }

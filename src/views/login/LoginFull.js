@@ -17,11 +17,12 @@ export class LoginFull extends React.Component {
   }
 
   static propTypes = {
-
+    loggedIn: PropTypes.bool,
+    loggedInErrors: PropTypes.string
   }
 
   static defaultProps = {
-
+    loggedIn: false
   }
 
   componentWillReceiveProps = (newProps) => {

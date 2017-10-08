@@ -9,9 +9,7 @@ import { ThreeBounce } from 'better-react-spinkit'
 import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
-import StaffOnly from 'views/login/StaffOnly'
 import MeaningValenceItem from 'views/meaningvalences/MeaningValenceItem'
-import MeaningLargeInline from 'views/meanings/MeaningLargeInline'
 
 import MeaningBreadcrumbs from 'views/navigation/MeaningBreadcrumbs'
 

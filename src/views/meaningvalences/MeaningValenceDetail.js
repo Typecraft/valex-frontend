@@ -9,12 +9,8 @@ import valenceframes from 'state/valenceframes'
 import * as rootSelectors from 'state/selectors'
 
 import { ThreeBounce } from 'better-react-spinkit'
-import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
-import StaffOnly from 'views/login/StaffOnly'
-// import MeaningValenceInline from 'views/meaningvalences/MeaningValenceInline'
-import ExampleLargeInline from 'views/examples/ExampleLargeInline'
 import MeaningValenceBreadcrumbs from 'views/navigation/MeaningValenceBreadcrumbs'
 
 import './MeaningValenceDetail.css'

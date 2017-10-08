@@ -13,8 +13,6 @@ import { DEFAULT_PAGE_SIZE } from 'util/pagination'
 import FullPageLoader from 'views/generic/loaders/FullPageLoader'
 import Paginator from 'views/pagination/Paginator'
 
-import StaffOnly from 'views/login/StaffOnly'
-
 import './LemmaOverview.css'
 
 export class LemmaOverview extends React.Component {

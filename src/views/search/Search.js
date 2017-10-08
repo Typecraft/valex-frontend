@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import { withRouter, Link } from 'react-router-dom'

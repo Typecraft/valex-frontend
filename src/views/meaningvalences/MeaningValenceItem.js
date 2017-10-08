@@ -26,7 +26,6 @@ export class MeaningValenceInline extends React.Component {
     const {
       className,
       meaningValence,
-      meaning,
       valenceFrame
     } = this.props
 

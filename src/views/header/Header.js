@@ -8,9 +8,6 @@ import users from 'state/users'
 import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
-import UserLoginHeaderButton from './UserLoginHeaderButton'
-import LoginDialog from 'views/login/LoginDialog'
-import UserLoggedInDialog from './UserLoggedInDialog'
 import HeaderNav from './HeaderNav'
 
 import './Header.css'

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 import lemmas from 'state/lemmas'
 
-import { Grid, Row, Col } from 'react-flexbox-grid'
+import { Grid } from 'react-flexbox-grid'
 
 import './Dashboard.css'
 import background from './assets/background_hdpi.jpg'

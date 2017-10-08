@@ -88,15 +88,19 @@
     right: 0;
     left: 0;
     width: 100vw;
-    background: white;
+    background-color: #4a4949;
   }
   .header__middle .headernav{
     margin: 0;
-    height: 60px;
+    height: 50px;
     text-align: center;
   }
   .header__middle .headernav .headernav__sublist{
     display: none;
+  }
+  .header__middle a.resetlink,
+  .header__middle .header__btn{
+    color: white !important;
   }
   .headernav .header__btn{
     margin: 0 !important;
@@ -119,9 +123,10 @@
     text-align: center;
     font-size: 18px;
     padding: 0;
-    background: white;
-    padding-top: 0.2em;
-    padding-bottom: 1em;
+    background-color: #4a4949;
+    color: white;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
   }
   .header__right a{
     padding-right: 2.5em !important;

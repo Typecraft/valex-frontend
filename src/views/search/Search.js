@@ -9,6 +9,8 @@ import meanings from 'state/meanings'
 
 import Loader from 'views/generic/loaders/Loader'
 
+import searchIcon from 'assets/search-gray.svg'
+
 import './Search.css'
 
 export class Search extends React.Component {
@@ -62,12 +64,12 @@ export class Search extends React.Component {
     return (
       <div className="search center">
         <div className="search__top">
-          <div className="valex-form-control">
+          <div className="search-form-control">
             <div className="form-group">
               <input defaultValue={searchQuery} type="text" placeholder="Search" ref={el => this.inputElement = el}/>
-              <span className="submit-inform bg-valex-blue valex-highlight-blue" onClick={this.handleSearch}>
-                <i className="mdi mdi-magnify"></i>
-              </span>
+              <div className="searchicon">
+                <img src={searchIcon} alt=""/>
+              </div>
             </div>
           </div>
         </div>
@@ -75,14 +77,11 @@ export class Search extends React.Component {
           {searchQuery !== '' ?
             <Grid className="search__results">
               <Row>
-                <Col md={6}>
-                  <h2 className="light mb-5">Lemmas</h2>
+                <Col xs={12} lg={6}>
+                  <h2 className="thin mb-5">Lemmas</h2>
                   <div className="card">
                     {lemmas ?
-                    <table className="search__lemmaresults mb-20">
-                      <thead>
-                        <th className="bold">Lemma</th>
-                      </thead>
+                    <table className="search__lemmaresults">
                       <tbody>
                         {Object.values(lemmas).map(lemma => (
                           <tr key={lemma.id} className="lemmaoverview__lemmaentry">
@@ -97,14 +96,11 @@ export class Search extends React.Component {
                     }
                   </div>
                 </Col>
-                <Col md={6}>
-                  <h2 className="light mb-5">Meanings</h2>
+                <Col xs={12} lg={6}>
+                  <h2 className="mb-5 thin">Meanings</h2>
                   <div className="card">
                     {meanings ?
-                    <table className="search__lemmaresults mb-20">
-                      <thead>
-                        <th className="bold">Meaning</th>
-                      </thead>
+                    <table className="search__lemmaresults">
                       <tbody>
                         {Object.values(meanings).map(meaning => (
                           <tr key={meaning.id} className="lemmaoverview__lemmaentry">
@@ -140,7 +136,6 @@ function mapStateToProps(state, ownProps) {
       1,
       `meaning__icontains=${searchQuery}`
     ) || {})
-  console.log(meaningPage);
   return {
     searchQuery,
     lemmas: lemmaPage.results,

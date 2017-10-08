@@ -32,7 +32,6 @@ export class Dashboard extends React.Component {
   }
 
   handleKeyUp = event => {
-    console.log(event);
     if (event.key === 'Enter') {
       this.handleSearch()
     }

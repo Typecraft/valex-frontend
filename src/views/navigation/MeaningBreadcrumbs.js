@@ -31,13 +31,13 @@ export class MeaningBreadcrumbs extends React.Component {
 
     return (
       <div className="meaningbreadcrumbs thin">
-        <Link to={`/app/lemmas/${lemma.id}`} className="resetlink pr-15">
+        <Link to={`/app/lemmas/${lemma.id}`} className="resetlink pr-10">
           {lemma.lemma}
         </Link>
         <span>
           <Chevron size={10} color="#000" />
         </span>
-        <span className="pl-15 pl-15">
+        <span className="pl-10 pl-10">
           {meaning.meaning}
         </span>
       </div>

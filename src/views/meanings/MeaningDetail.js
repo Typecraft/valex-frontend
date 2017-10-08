@@ -13,6 +13,8 @@ import StaffOnly from 'views/login/StaffOnly'
 import MeaningValenceItem from 'views/meaningvalences/MeaningValenceItem'
 import MeaningLargeInline from 'views/meanings/MeaningLargeInline'
 
+import MeaningBreadcrumbs from 'views/navigation/MeaningBreadcrumbs'
+
 import './MeaningDetail.css'
 
 export class MeaningDetail extends React.Component {
@@ -57,10 +59,13 @@ export class MeaningDetail extends React.Component {
               <h1 className="mb-0">{meaning.meaning}</h1>
             </Row>
             <hr/>
+            <Row className="mt-15">
+              <MeaningBreadcrumbs />
+            </Row>
             <Row>
-              <h3 className="light mt-5">Basic data</h3>
+              <h3 className="light mt-20 mb-0">Basic data</h3>
               <Col xs={12}>
-                <table className="thin spaced-table">
+                <table className="thin spaced-table mt-5">
                   <tbody>
                     <tr>
                       <td>Meaning</td>

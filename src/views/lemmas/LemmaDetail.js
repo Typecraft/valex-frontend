@@ -10,8 +10,6 @@ import { ThreeBounce } from 'better-react-spinkit'
 import { Link } from 'react-router-dom'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
-import StaffOnly from 'views/login/StaffOnly'
-import MeaningLargeInline from 'views/meanings/MeaningLargeInline'
 
 import './LemmaDetail.css'
 
@@ -61,7 +59,7 @@ export class LemmaDetail extends React.Component {
             </Row>
             <hr/>
             <Row>
-              <h3 className="light mt-5">Basic data</h3>
+              <h3 className="light mt-20">Basic data</h3>
               <Col xs={12}>
                 <table className="thin spaced-table">
                   <tbody>

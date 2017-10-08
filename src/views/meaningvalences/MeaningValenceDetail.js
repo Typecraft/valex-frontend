@@ -15,6 +15,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid'
 import StaffOnly from 'views/login/StaffOnly'
 // import MeaningValenceInline from 'views/meaningvalences/MeaningValenceInline'
 import ExampleLargeInline from 'views/examples/ExampleLargeInline'
+import MeaningValenceBreadcrumbs from 'views/navigation/MeaningValenceBreadcrumbs'
 
 import './MeaningValenceDetail.css'
 
@@ -64,8 +65,11 @@ export class MeaningValenceDetail extends React.Component {
               <h1 className="mb-0">{meaning.meaning}</h1>
             </Row>
             <hr/>
+            <Row className="mt-15">
+              <MeaningValenceBreadcrumbs />
+            </Row>
             <Row>
-              <h3 className="light mt-5">Basic data</h3>
+              <h3 className="light mt-20 mb-0">Basic data</h3>
               <Col xs={12}>
                 <table>
                   <tbody className="spaced-table thin">
@@ -85,7 +89,7 @@ export class MeaningValenceDetail extends React.Component {
                 </table>
               </Col>
             </Row>
-            <Row className="mt-20">
+            <Row>
               <h3 className="light">Examples</h3>
               <Col xs={12}>
                 {!examples || Object.keys(examples).filter(x=>x).length === 0 ?
@@ -116,7 +120,7 @@ function mapStateToProps(state, ownProps) {
   const { meaningValenceId } = ownProps.match.params
   return {
     meaning: meanings.selectors.getAll(state)[meaningValence.meaning],
-    valenceFrame: valenceframes.selectors.getAll(state)[meaningValence.valenceFrame],
+    valenceFrame: valenceframes.selectors.getById(state, meaningValence.valenceFrame),
     meaningValence,
     examples: rootSelectors.getMeaningValenceExamples(state, meaningValenceId)
   }
@@ -127,7 +131,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     load: () => dispatch(meaningvalences.actions.load(
       meaningValenceId,
-      {loadRelated: 1}
+      {loadRelated: 1, loadParents: 2}
     ))
   }
 }

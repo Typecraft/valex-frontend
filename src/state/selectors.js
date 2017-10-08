@@ -47,3 +47,38 @@ export const getMeaningValenceExamples = createSelector(
     }, {})
   }
 )
+
+export const getMeaningLemma = createSelector(
+  meanings.selectors.getAll,
+  lemmas.selectors.getAll,
+  (state, meaningId) => meaningId,
+  (meanings, lemmas, meaningId) => {
+    const meaning = meanings[meaningId] || {}
+    return lemmas[meaning.lemma]
+  }
+)
+
+export const getMeaningDetailLemma =
+  (state, ownProps) => getMeaningLemma(state, ownProps.match.params.meaningId)
+
+
+export const getMeaningValenceMeaning = createSelector(
+  meaningvalences.selectors.getById,
+  meanings.selectors.getAll,
+  (meaningValence, meanings) => meanings[(meaningValence || {}).meaning]
+)
+export const getMeaningValenceDetailMeaning =
+  (state, ownProps) => getMeaningValenceMeaning(state, ownProps.match.params.meaningValenceId)
+
+export const getMeaningValenceLemma = createSelector(
+  meaningvalences.selectors.getById,
+  meanings.selectors.getAll,
+  lemmas.selectors.getAll,
+  (meaningValence, meanings, lemmas) => {
+    const meaning = meanings[(meaningValence || {}).meaning] || {}
+    return lemmas[meaning.lemma]
+  }
+)
+
+export const getMeaningValenceDetailLemma =
+  (state, ownProps) => getMeaningValenceLemma(state, ownProps.match.params.meaningValenceId)

@@ -39,7 +39,8 @@
   border: 1px solid #f0f0f0;
 }
 
-.headernav__subitem{
+.headernav__subitem > a{
+  display: inline-block;
   padding: 0.5em 3em 0.5em 1em;
   width: 200px;
 }

@@ -39,14 +39,15 @@ export const types = {
 }
 
 export const actions = {
-  load(config, {multiple=false, loadRelated=0} = {}) {
+  load(config, {multiple=false, loadRelated=0, loadParents=0} = {}) {
     return {
       type: types.LOAD,
       payload: config,
       meta: {
         single: !multiple,
         multiple,
-        loadRelated
+        loadRelated,
+        loadParents
       }
     }
   },
@@ -150,17 +151,22 @@ export function reducer(state = {}, {type, payload}) {
 }
 
 // SAGAS
-function* loadRelated(meaningValence, depth) {
+function* loadRelated(meaningValence, relatedDepth, parentDepth) {
   try {
-    const  _examples  = meaningValence.examples
-    yield all(
-      (_examples || [])
-      .map((meaningId) => put(examples.actions.load(meaningId, {
-        loadRelated: depth-1
-      })))
-    )
-    yield put(valenceframes.actions.load(meaningValence.valenceFrame, {loadRelated: 0}))
-    yield put(meanings.actions.load(meaningValence.meaning, {loadRelated: 0}))
+    if (relatedDepth) {
+      const  _examples  = meaningValence.examples
+      yield all(
+        (_examples || [])
+        .map((meaningId) => put(examples.actions.load(meaningId, {
+          loadRelated: relatedDepth-1
+        })))
+      )
+      yield put(valenceframes.actions.load(meaningValence.valenceFrame, {loadRelated: 0}))
+    }
+
+    if (parentDepth) {
+      yield put(meanings.actions.load(meaningValence.meaning, {loadParents: parentDepth-1}))
+    }
   } catch (e) {
     yield put(actions.loadError({
         detail: JSON.stringify((e.response || {}).data || e.toString()),
@@ -175,9 +181,7 @@ function* loadMeaningValence(action){
     if (action.meta.single) {
       const meaningValence = yield call(api.meaningvalences.readSingle, action.payload)
       yield put(actions.loadSuccess([meaningValence]))
-      if (action.meta.loadRelated) {
-        yield call(loadRelated, meaningValence, action.meta.loadRelated)
-      }
+      yield call(loadRelated, meaningValence, action.meta.loadRelated, action.meta.loadParents)
     } else {
       const {results} = yield call(api.meaningvalences.readMultiple, action.payload)
       yield put(actions.loadSuccess(results))

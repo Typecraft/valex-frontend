@@ -12,6 +12,7 @@ import {
 import api from 'api'
 import pagination from 'state/pagination'
 import meaningvalences from 'state/meaningvalences'
+import lemmas from 'state/lemmas'
 
 const paginator = pagination('/api/meanings/', 'meanings', selectors.getAll)
 
@@ -37,14 +38,15 @@ export const types = {
 }
 
 export const actions = {
-  load(config, {multiple=false, loadRelated = 0} = {}) {
+  load(config, {multiple=false, loadRelated = 0, loadParents=0} = {}) {
     return {
       type: types.LOAD,
       payload: config,
       meta: {
         single: !multiple,
         multiple,
-        loadRelated
+        loadRelated,
+        loadParents
       }
     }
   },
@@ -148,21 +150,27 @@ export function reducer(state = {}, {type, payload}) {
 }
 
 // SAGAS
-function* loadRelated(meaning, depth) {
+function* loadRelated(meaning, relatedDepth, parentDepth) {
   try {
-    const  _meaningValences = meaning.valences
-    yield all(
-      (_meaningValences || [])
-      .map((meaningId) => put(meaningvalences.actions.load(meaningId, {
-        loadRelated: depth-1
-      })))
-    )
-    const relatedMeanings = meaning.relatedMeanings || []
-    yield all(
-      relatedMeanings.map(meaningId => put(actions.load(meaningId, {
-        loadRelated: depth-1
-      })))
-    )
+    if (relatedDepth) {
+      const  _meaningValences = meaning.valences
+      yield all(
+        (_meaningValences || [])
+        .map((meaningId) => put(meaningvalences.actions.load(meaningId, {
+          loadRelated: relatedDepth-1
+        })))
+      )
+      const relatedMeanings = meaning.relatedMeanings || []
+      yield all(
+        relatedMeanings.map(meaningId => put(actions.load(meaningId, {
+          loadRelated: relatedDepth-1
+        })))
+      )
+    }
+    if (parentDepth) {
+      const lemma = meaning.lemma
+      yield put(lemmas.actions.load(lemma, {loadParents: parentDepth-1}))
+    }
   } catch (e) {
     yield put(actions.loadError({
         detail: JSON.stringify((e.response || {}).data || e.toString()),
@@ -177,9 +185,7 @@ function* loadMeaning(action){
     if (action.meta.single) {
       const meaning = yield call(api.meanings.readSingle, action.payload)
       yield put(actions.loadSuccess([meaning]))
-      if (action.meta.loadRelated) {
-        yield call(loadRelated, meaning, action.meta.loadRelated)
-      }
+      yield call(loadRelated, meaning, action.meta.loadRelated, action.meta.loadParents)
     } else {
       const {results} = yield call(api.meanings.readMultiple, action.payload)
       yield put(actions.loadSuccess(results))

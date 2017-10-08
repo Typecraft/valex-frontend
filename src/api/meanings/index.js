@@ -3,7 +3,7 @@ import { configureSearchParams } from '../util'
 
 export default {
   readSingle(id) {
-    return axios.get(`/api/meanings/${id}`)
+    return axios.get(`/api/meanings/${id}/`)
       .then(data => data.data)
   },
   readMultiple(config) {

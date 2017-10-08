@@ -3,7 +3,7 @@ import { configureSearchParams } from '../util'
 
 export default {
   readSingle(id) {
-    return axios.get(`/api/valence-frames/${id}`)
+    return axios.get(`/api/valence-frames/${id}/`)
       .then(data => data.data)
   },
   readMultiple(config) {

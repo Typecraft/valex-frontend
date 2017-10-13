@@ -35,6 +35,7 @@ export class Paginator extends React.Component {
       }
     }
   }
+
   componentDidMount() {
     document.addEventListener('keyup', this.handleKeyUp)
   }

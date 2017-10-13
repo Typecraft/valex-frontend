@@ -13,7 +13,7 @@ const createTypes = (name) => ({
 
 const createReducer = (name, types, reducerName) => {
   return (state = {[reducerName]: {}}, {type, payload = {}}) => {
-    const { page, next, prev, results, config, count} = payload
+    const { page, next, previous, results, config, count} = payload
     switch (type) {
       case types.LOAD:
         return {
@@ -38,7 +38,7 @@ const createReducer = (name, types, reducerName) => {
               [page]: {
                 page,
                 results,
-                prev,
+                previous,
                 next
               }
             }

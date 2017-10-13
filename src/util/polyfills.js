@@ -1,0 +1,2 @@
+
+Function.identity = x => x

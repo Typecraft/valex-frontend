@@ -6,7 +6,7 @@ import chevronGray from 'assets/chevron-gray.svg'
 export const HeaderNav = () => (
   <div className="headernav header-gray">
     <div className="header__btn">
-      <Link className="resetlink" to="/app/lemmas">
+      <Link className="resetlink" to="/app/lexicon">
         Lexicon
       </Link>
     </div>

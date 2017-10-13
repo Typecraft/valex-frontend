@@ -51,10 +51,6 @@ export class LemmaDetail extends React.Component {
       return (
         <Grid className="lemmadetail">
           <div className="lemmadetail__inner">
-            {/*<Row className="mt-40">
-              <h1 className="light darker-gray">{lemma.lemma}</h1>
-              <StaffOnly><Link to={`/app/lemmas/${lemma.id}/edit`} className="lemmadetail__edit darker-gray">Edit <i className="mdi mdi-pencil"></i></Link></StaffOnly>
-            </Row>*/}
             <Row>
               <h1 className="lemmadetail__header">{lemma.lemma}</h1>
             </Row>

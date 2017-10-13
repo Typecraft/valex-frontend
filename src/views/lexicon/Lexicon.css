@@ -1,0 +1,97 @@
+.lexicon{
+  position: absolute;
+  width: 100%;
+  top: 160px;
+  bottom: 0;
+  padding-top: 3em;
+}
+
+.lexicon .container,
+.lexicon .row{
+  height: 100%;
+}
+
+.lexicon__search{
+  position: relative;
+  margin-top: 3em;
+}
+
+.lexicon__search img{
+  width: 16px;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  margin-left: 1em;
+}
+
+.lexicon__search input{
+  padding: 0.5em 3em;
+  border: none;
+  background: #f0f0f0;
+  font-family: 'aktiv-grotesk-thin', sans-serif;
+  font-weight: 200;
+  width: 150px;
+}
+
+.lexicon__languageselect{
+  padding-top: 2em;
+  color: #444;
+}
+
+.lexicon__languageoption:not(:first-child){
+  padding-top: 1em;
+}
+
+.lexicon__main{
+  position: relative;
+  height: 100%;
+}
+
+.lexicon__main:before{
+  content: " ";
+  width: 1px;
+  height: 90%;
+  margin-top: 3em;
+  display: inline-block;
+  position: absolute;
+  margin-left: -1em;
+  background: #f0f0f0;
+}
+
+.lexicon__table{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lexicon__table .row:nth-child(even) .lexicon__entry{
+  background-color: #fafafa;
+}
+
+.lexicon__entry{
+  display: block;
+  margin-right: 2em;
+  padding: 0.75em;
+}
+
+.lexicon__cell{
+  flex-basis: 33.33333%;
+}
+
+.lexicon__cell a{
+  margin-right: 2em;
+  display: block;
+  padding: 0.75em;
+}
+
+.lexicon__cell:nth-child(6n+4) a,
+.lexicon__cell:nth-child(6n+5) a,
+.lexicon__cell:nth-child(6n+6) a
+{
+  background-color: #fafafa;
+}
+
+.lexicon__table{
+  padding-left: 8em;
+  padding-right: 8em;
+}

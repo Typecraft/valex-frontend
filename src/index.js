@@ -9,6 +9,8 @@ import App from './views/app/App'
 import configureStore from './state'
 import api from 'api'
 
+import 'util/polyfills'
+
 import users from 'state/users'
 import login from 'state/login'
 

@@ -1,0 +1,37 @@
+.checkbox input{
+  display: none;
+}
+
+.checkbox input + label{
+  display: flex;
+}
+
+.checkbox input + label span{
+  display: inline-block;
+}
+
+.checkbox input + label span.checkbox__box{
+  background: #f0f0f0;
+  width: 19px;
+  height: 19px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox input:checked + label span.checkbox__box:after{
+  content: "\F12C";
+  font: normal normal normal 24px/1 "Material Design Icons";
+  font-size: inherit;
+  text-rendering: auto;
+  line-height: inherit;
+  color: #888;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.checkbox__label{
+  padding-left: 1em;
+  cursor: pointer;
+}

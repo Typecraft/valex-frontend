@@ -8,7 +8,8 @@ export const Chevron = ({
   size=16,
   color='#4d4d4f',
   className='',
-  style={}
+  style={},
+  onClick=Function.identity
 }) => {
   let rotationInDeg = 0
   if (rotation.constructor !== String) {
@@ -33,6 +34,7 @@ export const Chevron = ({
   return (
     <span
         className={`chevron chevron--${rotation}`}
+        onClick={onClick}
         style={Object.assign(
           {
             color,

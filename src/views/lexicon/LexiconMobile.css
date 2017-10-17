@@ -1,0 +1,16 @@
+.lexiconmobile .lexicon__search input{
+  width: 80%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .lexicon{
+    padding-top: 0 !important;
+  }
+
+  .lexicon__search{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

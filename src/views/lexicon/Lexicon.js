@@ -5,11 +5,12 @@ import { Link, withRouter } from 'react-router-dom'
 import queryString from 'query-string'
 
 import lemmas from 'state/lemmas'
-
 import searchIcon from 'assets/search-gray.svg'
 
 import { Grid, Row, Col } from 'react-flexbox-grid'
+import MediaQuery from 'react-responsive'
 
+import LexiconMobile from './LexiconMobile'
 import Checkbox from 'views/generic/forms/Checkbox'
 import AlphabetPaginator from 'views/pagination/AlphabetPaginator'
 
@@ -17,7 +18,11 @@ import './Lexicon.css'
 
 export class Lexicon extends React.Component {
   static propTypes = {
-
+    lemmas: PropTypes.array,
+    currentPage: PropTypes.object,
+    char: PropTypes.string,
+    page: PropTypes.string,
+    lang: PropTypes.array
   }
 
   static defaultProps = {
@@ -74,47 +79,52 @@ export class Lexicon extends React.Component {
       currentPage,
       char,
       page,
-      lang
+      lang,
     } = this.props
     return (
       <div className="lexicon">
-        <Grid>
-          <Row>
-            <Col lg={2}  className="lexicon__sidebar">
-              <div className="lexicon__search">
-                <input type="text"/>
-                <img src={searchIcon} alt=""/>
-              </div>
-              <div className="lexicon__languageselect">
-                <div className="lexicon__languageoption">
-                  <Checkbox checked={lang.includes('deu')} onChange={() => this.handleLanguageChange('deu')} id="deutsch" label="German" defaultChecked={true} />
+        <MediaQuery query="(max-device-width: 1024px)">
+          <LexiconMobile {...this.props} />
+        </MediaQuery>
+        <MediaQuery query="(min-device-width: 1024px)">
+          <Grid>
+            <Row>
+              <Col lg={2}  className="lexicon__sidebar">
+                <div className="lexicon__search">
+                  <input type="text"/>
+                  <img src={searchIcon} alt=""/>
                 </div>
-                <div className="lexicon__languageoption">
-                  <Checkbox checked={lang.includes('nob')} onChange={() => this.handleLanguageChange('nob')} id="norwegian" label="Norwegian" />
+                <div className="lexicon__languageselect">
+                  <div className="lexicon__languageoption">
+                    <Checkbox checked={lang.includes('deu')} onChange={() => this.handleLanguageChange('deu')} id="deutsch" label="German" defaultChecked={true} />
+                  </div>
+                  <div className="lexicon__languageoption">
+                    <Checkbox checked={lang.includes('nob')} onChange={() => this.handleLanguageChange('nob')} id="norwegian" label="Norwegian" />
+                  </div>
                 </div>
-              </div>
-            </Col>
-            <Col lg={10} className="lexicon__main">
-              <AlphabetPaginator
-                  next={currentPage.next}
-                  previous={currentPage.previous}
-                  onChangePage={this.handlePageChange}
-                  onLetterChange={this.handleLetterChange}
-                  currentCharacter={char}
-                  currentPage={page}>
-                <div className="lexicon__table">
-                  {lemmas.map(lemma => (
-                    <div key={lemma.id} className="lexicon__cell">
-                      <Link to={`/app/lemmas/${lemma.id}`} className="resetlink">
-                        {lemma.lemma}
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              </AlphabetPaginator>
-            </Col>
-          </Row>
-        </Grid>
+              </Col>
+              <Col lg={10} className="lexicon__main">
+                <AlphabetPaginator
+                    next={currentPage.next}
+                    previous={currentPage.previous}
+                    onChangePage={this.handlePageChange}
+                    onLetterChange={this.handleLetterChange}
+                    currentCharacter={char}
+                    currentPage={page}>
+                  <div className="lexicon__table">
+                    {lemmas.map(lemma => (
+                      <div key={lemma.id} className="lexicon__cell">
+                        <Link to={`/app/lemmas/${lemma.id}`} className="resetlink">
+                          {lemma.lemma}
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </AlphabetPaginator>
+              </Col>
+            </Row>
+          </Grid>
+        </MediaQuery>
       </div>
     )
   }

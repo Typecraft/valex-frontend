@@ -70,7 +70,7 @@ export class LoginFull extends React.Component {
           <div className="login-form-wrapper">
             <div className="form-group mb-20">
               <label className="thin mb-5">Username</label>
-              <input type="text" onChange={this.handleChangeUsername}/>
+              <input autoFocus type="text" onChange={this.handleChangeUsername}/>
             </div>
             <div className="form-group mb-30">
               <label className="thin mb-5">Password</label>

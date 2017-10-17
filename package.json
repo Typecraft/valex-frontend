@@ -12,6 +12,7 @@
     "query-string": "^5.0.0",
     "react": "^15.6.1",
     "react-addons-test-utils": "^15.6.0",
+    "react-click-outside": "tj/react-click-outside",
     "react-dom": "^15.6.1",
     "react-flexbox-grid": "^1.1.5",
     "react-redux": "^5.0.6",

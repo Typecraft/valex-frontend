@@ -1,0 +1,51 @@
+.flaglanguageselector img{
+  position: absolute;
+  right: 1em;
+  left: auto !important;
+  top: 4px !important;
+  height: 24px !important;
+  width: 24px !important;
+  cursor: pointer;
+}
+
+.flaglanguageselector__submenu:not(.open){
+  display: none;
+}
+
+.flaglanguageselector__submenu{
+  display: block;
+  list-style: none;
+  position: absolute;
+  top: 3em;
+  right: 1em;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  margin: 0;
+  padding: 0;
+}
+
+
+.flaglanguageselector__submenu img{
+  position: relative !important;
+  left: inherit !important;
+  right: inherit !important;
+  top: inherit !important;
+  bottom: inherit !important;
+  z-index: inherit;
+  height: 19px !important;
+  width: 19px !important;
+}
+
+.flaglanguageselector__submenu li{
+  padding: 0.6em 0.5em;
+}
+
+.flaglanguageselector__submenu li > span{
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.flaglanguageselector__submenu li > span,
+.flaglanguageselector__submenu li > img{
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -4,6 +4,8 @@ import searchIcon from 'assets/search-gray.svg'
 
 import './LexiconMobile.css'
 
+import FlagLanguageSelector from './FlagLanguageSelector'
+
 export class LexiconMobile extends React.Component {
   static propTypes = {
     lemmas: PropTypes.array,
@@ -19,6 +21,12 @@ export class LexiconMobile extends React.Component {
         <div className="lexicon__search">
           <input type="text"/>
           <img src={searchIcon} alt=""/>
+          <FlagLanguageSelector />
+        </div>
+        <div className="lexiconmobile__main">
+          {this.props.lemmas.map(lemma => (
+            <div>{lemma.lemma}</div>
+          ))}
         </div>
       </div>
     )

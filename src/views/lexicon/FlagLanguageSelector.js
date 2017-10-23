@@ -7,16 +7,19 @@ import ClickOutside from 'react-click-outside'
 import nobFlag from 'assets/flag-nor.svg'
 import deuFlag from 'assets/flag-deu.svg'
 
+import _ from 'lodash'
+
 import './FlagLanguageSelector.css'
 
 export class FlagLanguageSelector extends React.Component {
   static propTypes = {
     lang: PropTypes.array,
-    onLanguageSelect: PropTypes.func,
+    onLanguageToggle: PropTypes.func,
   }
 
   static defaultProps = {
-    lang: []
+    lang: [],
+    onLanguageToggle: _.identity
   }
 
   constructor(props) {
@@ -39,9 +42,18 @@ export class FlagLanguageSelector extends React.Component {
     })
   }
 
+  handleLanguageChange = (lang) => {
+    this.setState({
+      ...this.state,
+      open: false
+    })
+    this.props.onLanguageToggle(lang)
+  }
+
   render = () => {
     const {
       lang,
+      onLanguageToggle
     } = this.props
 
     const {
@@ -54,8 +66,18 @@ export class FlagLanguageSelector extends React.Component {
       <div className="flaglanguageselector">
         <img src={icon} alt="" onClick={this.handleOpen} />
         <ul className={"flaglanguageselector__submenu" + (open ? " open" : "")}>
-          <li><img src={nobFlag} alt=""/><span>Norwegian</span></li>
-          <li><img src={deuFlag} alt=""/><span>German</span></li>
+          <li
+              className={lang.includes('nob') ? 'active': ''}
+              onClick={() => this.handleLanguageChange('nob')}>
+            <img src={nobFlag} alt=""/>
+            <span>Norwegian</span>
+          </li>
+          <li
+              className={lang.includes('deu') ? 'active': ''}
+              onClick={() => this.handleLanguageChange('deu')}>
+            <img src={deuFlag} alt=""/>
+            <span>German</span>
+          </li>
         </ul>
       </div>
     )

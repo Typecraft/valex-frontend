@@ -13,6 +13,7 @@
 }
 
 .flaglanguageselector__submenu{
+  background: white;
   display: block;
   list-style: none;
   position: absolute;
@@ -21,6 +22,7 @@
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
   margin: 0;
   padding: 0;
+  z-index: 500;
 }
 
 
@@ -37,6 +39,7 @@
 
 .flaglanguageselector__submenu li{
   padding: 0.6em 0.5em;
+  color: #444;
 }
 
 .flaglanguageselector__submenu li > span{
@@ -48,4 +51,12 @@
 .flaglanguageselector__submenu li > img{
   display: inline-block;
   vertical-align: middle;
+}
+
+.flaglanguageselector__submenu li:not(.active) img{
+  filter: grayscale(80%);
+}
+
+.flaglanguageselector__submenu li:not(.active) span{
+  color: #ccc;
 }

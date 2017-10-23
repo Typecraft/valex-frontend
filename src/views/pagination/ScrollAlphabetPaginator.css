@@ -1,0 +1,22 @@
+.scrollalphabetpaginator{
+  position: relative;
+}
+
+.scrollalphabetpaginator__sidebar{
+  position: fixed;
+  z-index: 1;
+  top: 178px;
+  bottom: 50px;
+  right: 0;
+  background: white;
+  border-left: 1px solid #f0f0f0;
+  overflow: scroll;
+}
+
+.scrollalphabetpaginator__char{
+  display: block;
+  text-transform: uppercase;
+  font-size: 11px;
+  padding-left: 17px;
+  padding-right: 17px;
+}

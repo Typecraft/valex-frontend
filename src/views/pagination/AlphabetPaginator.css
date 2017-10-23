@@ -11,7 +11,7 @@
 
 .alphabetpaginator__prev{
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 0;
   transform: translateY(-50%);
   cursor: pointer;
@@ -20,7 +20,7 @@
 .alphabetpaginator__next{
   position: absolute;
   right: 2em;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   cursor: pointer;
 }

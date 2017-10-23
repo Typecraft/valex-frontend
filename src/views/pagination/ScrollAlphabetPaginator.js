@@ -25,7 +25,6 @@ export const ScrollAlphabetPaginator = ({
         hasMore={!!currentPage.next}
         loadMore={onLoadMore}>
       {children}
-      {children}
     </InfiniteScroller>
     <div className="scrollalphabetpaginator__sidebar">
       <div className="scrollalphabetpaginator__alphabet">
@@ -41,7 +40,7 @@ export const ScrollAlphabetPaginator = ({
               <span
                   key={char}
                   onClick={() => onLetterChange(char)}
-                  className="scrollalphabetpaginator__char thin pl-7 pr-7">
+                  className="scrollalphabetpaginator__char thin">
                 {char}
               </span>
             )

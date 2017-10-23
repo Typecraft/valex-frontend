@@ -1,5 +1,30 @@
+.lexiconmobile{
+  height: 100%;
+  padding-top: 1em;
+}
+
 .lexiconmobile .lexicon__search input{
   width: 80%;
+}
+
+.lexiconmobile__main{
+  height: calc(100% - 32px);
+}
+
+.lexiconmobile .scrollalphabetpaginator{
+  height: 100%;
+  overflow: scroll;
+  padding-bottom: 3em;
+}
+
+.lexiconmobile__lemma{
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.lexiconmobile__lemma > a {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75em 0.5em 0.75em 2em;
 }
 
 @media only screen and (max-width: 1024px) {

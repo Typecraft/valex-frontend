@@ -12,6 +12,7 @@ import './LexiconMobile.css'
 
 import FlagLanguageSelector from './FlagLanguageSelector'
 import ScrollAlphabetPaginator from 'views/pagination/ScrollAlphabetPaginator'
+import Keydown from 'views/generic/Keydown'
 
 export class LexiconMobile extends React.Component {
   static propTypes = {
@@ -82,6 +83,12 @@ export class LexiconMobile extends React.Component {
     changePage(parseInt(page, 10)+1, char, lang)
   }
 
+  handleEnterClick = () => {
+    if (this.searchEl === document.activeElement) {
+      this.props.history.push(`/app/search?q=${this.searchEl.value}`)
+    }
+  }
+
   render() {
     const {
       currentPage,
@@ -92,34 +99,36 @@ export class LexiconMobile extends React.Component {
     } = this.props
 
     return (
-      <div className="lexiconmobile">
-        <div className="lexicon__search">
-          <input type="text"/>
-          <img src={searchIcon} alt=""/>
-          <FlagLanguageSelector
-              lang={lang}
-              onLanguageToggle={this.handleLanguageChange} />
+      <Keydown keys={['Enter']} onKey={this.handleEnterClick}>
+        <div className="lexiconmobile">
+          <div className="lexicon__search">
+            <input type="text" ref={el => this.searchEl = el}/>
+            <img src={searchIcon} alt=""/>
+            <FlagLanguageSelector
+                lang={lang}
+                onLanguageToggle={this.handleLanguageChange} />
+          </div>
+          <div className="lexiconmobile__main">
+            <ScrollAlphabetPaginator
+                currentPage={currentPage}
+                char={char}
+                page={page}
+                lang={lang}
+                useWindow={false}
+                onLoadMore={this.handleNextPage}
+                onLetterChange={this.handleLetterChange}
+            >
+              {lemmas.filter(_.identity).map(lemma => (
+                <div className="lexiconmobile__lemma">
+                  <Link className="resetlink" to={`/app/lemmas/${lemma.id}/`}>
+                    {lemma.lemma}
+                  </Link>
+                </div>
+              ))}
+            </ScrollAlphabetPaginator>
+          </div>
         </div>
-        <div className="lexiconmobile__main">
-          <ScrollAlphabetPaginator
-              currentPage={currentPage}
-              char={char}
-              page={page}
-              lang={lang}
-              useWindow={false}
-              onLoadMore={this.handleNextPage}
-              onLetterChange={this.handleLetterChange}
-          >
-            {lemmas.filter(_.identity).map(lemma => (
-              <div className="lexiconmobile__lemma">
-                <Link className="resetlink" to={`/app/lemmas/${lemma.id}/`}>
-                  {lemma.lemma}
-                </Link>
-              </div>
-            ))}
-          </ScrollAlphabetPaginator>
-        </div>
-      </div>
+      </Keydown>
     )
   }
 }

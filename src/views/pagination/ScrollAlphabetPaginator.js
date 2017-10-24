@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 
 import InfiniteScroller from 'react-infinite-scroller'
 import './ScrollAlphabetPaginator.css'
@@ -53,11 +54,20 @@ export const ScrollAlphabetPaginator = ({
 )
 
 ScrollAlphabetPaginator.propTypes = {
-
+  children: PropTypes.array,
+  loadPage: PropTypes.func,
+  currentPage: PropTypes.object,
+  page: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onLoadMore: PropTypes.func,
+  useWindow: PropTypes.bool,
+  currentCharacter: PropTypes.string,
+  onLetterChange: PropTypes.func
 }
 
 ScrollAlphabetPaginator.defaultProps = {
-
+  currentCharacter: 'a',
+  onLetterChange: _.identity,
+  onLoadMore: _.identity
 }
 
 export default ScrollAlphabetPaginator;

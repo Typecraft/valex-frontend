@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 
 import ClickOutside from 'react-click-outside'
 
@@ -53,7 +52,6 @@ export class FlagLanguageSelector extends React.Component {
   render = () => {
     const {
       lang,
-      onLanguageToggle
     } = this.props
 
     const {
@@ -63,23 +61,25 @@ export class FlagLanguageSelector extends React.Component {
     const icon = lang.includes('nob') ?
         nobFlag : deuFlag
     return (
-      <div className="flaglanguageselector">
-        <img src={icon} alt="" onClick={this.handleOpen} />
-        <ul className={"flaglanguageselector__submenu" + (open ? " open" : "")}>
-          <li
-              className={lang.includes('nob') ? 'active': ''}
-              onClick={() => this.handleLanguageChange('nob')}>
-            <img src={nobFlag} alt=""/>
-            <span>Norwegian</span>
-          </li>
-          <li
-              className={lang.includes('deu') ? 'active': ''}
-              onClick={() => this.handleLanguageChange('deu')}>
-            <img src={deuFlag} alt=""/>
-            <span>German</span>
-          </li>
-        </ul>
-      </div>
+      <ClickOutside onClickOutside={this.close}>
+        <div className="flaglanguageselector">
+          <img src={icon} alt="" onClick={this.handleOpen} />
+          <ul className={"flaglanguageselector__submenu" + (open ? " open" : "")}>
+            <li
+                className={lang.includes('nob') ? 'active': ''}
+                onClick={() => this.handleLanguageChange('nob')}>
+              <img src={nobFlag} alt=""/>
+              <span>Norwegian</span>
+            </li>
+            <li
+                className={lang.includes('deu') ? 'active': ''}
+                onClick={() => this.handleLanguageChange('deu')}>
+              <img src={deuFlag} alt=""/>
+              <span>German</span>
+            </li>
+          </ul>
+        </div>
+      </ClickOutside>
     )
   }
 }

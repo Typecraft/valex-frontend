@@ -98,6 +98,8 @@ export class LexiconMobile extends React.Component {
       lemmas
     } = this.props
 
+    console.log(char);
+
     return (
       <Keydown keys={['Enter']} onKey={this.handleEnterClick}>
         <div className="lexiconmobile">
@@ -111,7 +113,7 @@ export class LexiconMobile extends React.Component {
           <div className="lexiconmobile__main">
             <ScrollAlphabetPaginator
                 currentPage={currentPage}
-                char={char}
+                currentCharacter={char}
                 page={page}
                 lang={lang}
                 useWindow={false}

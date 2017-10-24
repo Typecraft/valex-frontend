@@ -21,7 +21,7 @@ export class Lexicon extends React.Component {
         <MediaQuery query="(max-device-width: 1024px)">
           <LexiconMobile />
         </MediaQuery>
-        <MediaQuery query="(min-device-width: 1024px)">
+        <MediaQuery query="(min-device-width: 1025px)">
           <LexiconDesktop />
         </MediaQuery>
       </div>
